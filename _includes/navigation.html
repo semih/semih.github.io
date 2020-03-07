@@ -1,9 +1,40 @@
+
+<!-- 
 <ul class="main-navigation">
   <li><a href="/about/">about</a></li>
   <li><a href="/archive">archive</a></li>
   <li><a href="https://github.com/{{site.github_user}}/{{site.name}}/issues/new">contact</a></li>
   <li><a href="/contributors">contributors</a></li>
 </ul>
+
+{% if site.description %}
+<section class="aboutme">
+  <p>
+    {{ site.description }}
+  </p>
+</section>
+{% endif %}
+-->
+
+
+{{site.lang}}
+
+{% for lang in site.data.languages %}
+  {% assign langCode = lang[0] %}
+  {% if langCode == 'en' %}{% continue %}{% endif %}
+  <em>{{ site.data.translations.selectLang[langCode] }}</em><br />
+{% endfor %}
+
+
+<ul class="languages main-navigation">
+{% assign language = site.data.languages[page.lang] %}
+{% assign langCode = lang[0] %}
+  <li><a href="{{site.t[page.lang].url}}/about">{{site.t[page.lang].about}}</a></li>
+  <li><a href="{{site.t[page.lang].url}}/archive">{{site.t[page.lang].archive}}</a></li>
+  <li><a href="https://github.com/{{site.github_user}}/{{site.name}}/issues/new">{{site.t[page.lang].contact}}</a></li>
+  <li><a href="{{site.t[page.lang].url}}/contributors">{{site.t[page.lang].contributors}}</a></li>
+</ul>
+
 
 {% if site.description %}
 <section class="aboutme">

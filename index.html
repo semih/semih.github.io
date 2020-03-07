@@ -1,7 +1,8 @@
 ---
-layout: default
+layout: 
 published: true
 ---
+<!--
 
 {% assign index = true %}
 <div itemscope itemtype="http://schema.org/Blog">
@@ -23,3 +24,18 @@ published: true
     {% endif %}
     <div class="center"><a href="/archive">Blog Archives</a></div>
 </nav>
+-->
+
+
+{% for lang in site.data.languages %}
+  {% assign langCode = lang[0] %}
+  {% if langCode == 'en' %}{% continue %}{% endif %}
+  <em>{{ site.data.translations.selectLang[langCode] }}</em><br />
+{% endfor %}
+
+<ul class="languages">
+{% for lang in site.data.languages %}
+{% assign language = lang[1] %}
+<li><a href="/{{lang[0]}}">{{language.icon}} {{ language.label }} ({{ lang[0] }})</a></li>
+{% endfor %}
+</ul>

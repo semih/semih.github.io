@@ -4,8 +4,11 @@ title: "Binary Search"
 date: 2017-09-16 01:15ly
 author: semih
 comments: true
+lang: en
+lang-ref: binary-search
 categories: [Algorithm, Java]
 tags: [java, algorithm]
+published: false
 ---
 In the following example, you will see the recursive binary search algorithm implementation in Java language.
 {% highlight java %}

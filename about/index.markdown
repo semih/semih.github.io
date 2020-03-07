@@ -9,4 +9,4 @@ categories: [personal]
 sharing: false
 ---
 
-I was born in Uşak/Turkey. I studied in the Department of Computer Engineering at Sakarya University between 2008 and 2012 years.
+I was born in Uşak/Turkey. I studied at Computer Engineering Department of Sakarya University between 2008 and 2012. After working in several different companies, I am currently developing software at Ibtech since 2018, January.

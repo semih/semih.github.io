@@ -215,7 +215,6 @@ a {
 }
 #sub-nav .social {
   float: left;
-  margin-right: 15px;
 }
 @media screen and (max-width: 1040px) {
   #sub-nav .social {
@@ -763,7 +762,6 @@ ul li a {
   width: 100%;
 }
 .left-col {
-  width: 16%;
   position: fixed;
   height: 100%;
 }
@@ -772,7 +770,7 @@ ul li a {
 }
 .left-col #header {
   width: 100%;
-  padding: 20% 0% 0% 15%;
+  padding: 10% 0% 0% 10%;
 }
 .left-col #header #main-nav {
   margin-top: 30px;
@@ -783,6 +781,12 @@ ul li a {
   -moz-border-radius: 50%;
   -webkit-border-radius: 50%;
 }
+.profilepic {
+  margin-top: 20px;
+}
+.languages {
+  font-size: 16px;
+}
 .left-col #header a {
   text-shadow: 0 1px #333;
 }
@@ -790,7 +794,7 @@ ul li a {
   margin-top: 10px;
 }
 .left-col #header #sub-nav .social {
-  margin-bottom: 10px;
+
 }
 .archives .title {
   font-size: 1.2em;
@@ -936,4 +940,8 @@ dd {
 .social {
   bottom: 0px;
   position: fixed;
+}
+
+.languages {
+  font-size: 20px;
 }

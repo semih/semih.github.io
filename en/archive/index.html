@@ -1,0 +1,14 @@
+---
+layout: page
+title: archive
+lang: en
+---
+{% assign posts=site.posts | where:"lang", page.lang %}
+<div class="archives" itemscope itemtype="http://schema.org/Blog">
+{% for post in posts %}
+{% if post.layout == 'post' %}
+	{% include archive_post.html  %}
+{% endif %}
+{% endfor %}
+  </ul>
+</div>

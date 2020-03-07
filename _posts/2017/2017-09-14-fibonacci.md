@@ -4,8 +4,11 @@ title: "Fibonacci"
 date: 2017-09-14 01:15ly
 author: semih
 comments: true
+lang: en
+lang-ref: fibonacci
 categories: [Algorithm, Java]
 tags: [java, algorithm]
+published: false
 ---
 In the following example, fibonacci numbers are written for given input in Java language.
 {% highlight java %}

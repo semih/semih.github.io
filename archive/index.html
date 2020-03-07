@@ -2,11 +2,11 @@
 layout: page
 title: archive
 ---
-
+{% assign posts=site.posts | where:"lang", page.lang %}
 <div class="archives" itemscope itemtype="http://schema.org/Blog">
-{% for post in site.posts limit:1000 %}
+{% for post in posts %}
 {% if post.layout == 'post' %}
-	{% include archive_post.html %}
+	{% include archive_post.html  %}
 {% endif %}
 {% endfor %}
   </ul>

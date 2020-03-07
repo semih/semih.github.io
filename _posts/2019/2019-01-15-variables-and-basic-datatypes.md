@@ -4,8 +4,11 @@ title: "Variables and Basic DataTypes"
 date: 2019-01-15 23:00:00 Wednesday
 author: semih
 comments: true
+lang: en
+lang-ref: data-types
 categories: [java]
 tags: [java, datatypes]
+published: false
 ---
 Although Java is object oriented, not all types are object. There are primitive types as well. Here is a list of all primitive types in Java:
 <br/>

@@ -1,10 +1,29 @@
+<!--
+{% for lang in site.data.languages %}
+  {% assign langCode = lang[0] %}
+  {% if langCode == 'en' %}{% continue %}{% endif %}
+  <em>{{ site.data.translations.selectLang[langCode] }}</em><br />
+{% endfor %}
+
+<ul class="languages">
+{% for lang in site.data.languages %}
+{% assign language = lang[1] %}
+
+{% assign page.lang = lang[0] %}
+<div class="{{ page.lang }}"></div>
+
+<li><a href="">{{language.icon}} {{ language.label }} ({{ lang[0] }})</a></li>
+{% endfor %}
+</ul>
+-->
+
 <div class="profilepic">
 	{% if site.gravatar_url %}
 	<!--img src="{{ site.gravatar_url }}?s=160" alt="Profile Picture" style="width: 160px;" /-->
 	{% endif %}
 </div>
 <hgroup>
-  <h1><a href="/">{{ site.title }}</a></h1>
+  <h1><a href="{{site.t[page.lang].url}}">{{ site.title }}</a></h1>
   {% if site.subtitle %}
     <h2>{{ site.subtitle }}</h2>
   {% endif %}

@@ -1,0 +1,22 @@
+relatedPosts:
+  en: "Related Posts"
+  tr: "İlişkili Makaleler"
+differentLanguage:
+  en: "Read this page in a different language"
+  tr: "Bu sayfayı farklı dilde oku"
+
+t:
+  en:
+    about: "about"
+    archive: "archive"
+    contact: "contact"
+    contributors: "contributors"
+    url: "{{site.url}}/en"
+  tr:
+    about: "hakkımda"
+    archive: "arşiv"
+    contact: "iletişim"
+    contributors: "katkıda bulun"
+    url: "{{site.url}}/tr"
+
+

@@ -4,8 +4,11 @@ title: "Git Commands"
 date: 2020-01-02 02:38:19 Thursday
 author: semih
 comments: true
+lang: en
+lang-ref: git-commands
 categories: [git]
 tags: [git, source control management, scm]
+published: false
 ---
 We have numerous sources and manage it using source control management(SCM) DevOps tools like Git, SubVersion, CVS, TFS, ClearCase, Mercurial. Git is a modern distributed version control system. I am going to tell you most useful Git commands and why we need to use those commands. I will explain each step with examples.
 <br/>

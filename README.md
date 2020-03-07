@@ -26,7 +26,7 @@ On http://rubyinstaller.org/downloads/ site
 
 2. Open command prompt and execute "gem install jekyll" command. So Jekyll Gems are created.
 
-3. "jekyll serve" command is executed for testing.
+3. "bundle exec jekyll serve" command is executed for testing.
 
 4. If it is not a mistake when "jekyll serve" command is executed , try to go "http://localhost:4000"
 

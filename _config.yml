@@ -3,7 +3,7 @@
 #
 name: semih.github.io
 author: Semih Kırdinli
-description:
+description: 
 url: https://semih.github.io
 title: programming basics
 subtitle:
@@ -34,12 +34,33 @@ kramdown:
 #
 # Jekyll Settings
 #
-permalink: /archive/:year/:month/:day/:title/
+#permalink: /archive/:year/:month/:day/:title/
+permalink: /:categories/:title/
 paginate: 10
 paginate_path: "page/:num"
 category_dir: categories
 languages: ["en", "tr"]
 language_default: "en"
+baseurl:          /
+
+t:
+  en:
+    about: "about"
+    archive: "archive"
+    contact: "contact"
+    contributors: "contributors"
+    url: "/en"
+    comments: "comments"
+    edit: "edit"
+  tr:
+    about: "hakkımda"
+    archive: "arşiv"
+    contact: "iletişim"
+    contributors: "katkıda bulun"
+    url: "/tr"
+    comments: "yorumlar"
+    edit: "düzenle"
+
 
 feed:
   path: rss.xml
@@ -61,7 +82,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-feed
-#  - jekyll-multiple-languages
 
 exclude_from_localizations:
   ["javascript", "images", "css", "Gemfile", "scripts", "LICENSE", "README.md"]
