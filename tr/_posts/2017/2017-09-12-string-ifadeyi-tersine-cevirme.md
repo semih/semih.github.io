@@ -31,7 +31,7 @@ public class ReverseString {
 }
 {% endhighlight %}
 
-Çıktı:
+Program Çıktısı:
 {% highlight java %}
 String ifadenin ters çevrilmiş hali: !dlrow olleH
 {% endhighlight %}

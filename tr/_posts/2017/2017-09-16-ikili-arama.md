@@ -52,7 +52,7 @@ class BinarySearch {
 }
 {% endhighlight %}
 
-Çıktı:
+Program Çıktısı:
 {% highlight java %}
 Element found at index 3
 {% endhighlight %}
