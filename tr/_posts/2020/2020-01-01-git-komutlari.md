@@ -9,7 +9,9 @@ lang-ref: git-commands
 categories: [git]
 tags: [git, source control management, scm]
 ---
-We have numerous sources and manage it using source control management(SCM) DevOps tools like Git, SubVersion, CVS, TFS, ClearCase, Mercurial. Git is a modern distributed version control system. I am going to tell you most useful Git commands and why we need to use those commands. I will explain each step with examples.
+Yazılan kod çoğaldıkça yönetimi zorlaşır ve bu nedenle bazı ihtiyaçlar ortaya çıkar. Bu ihtiyaçlardan biri depolama, bir diğeri de versiyonlamadır. Depolama, kodların bir veya birden fazla sunucuda, herhangi bir yerde saklanması işlemidir. Versiyonlama ise kodun geçirdiği evrimi bize anlatır. Bu yüzden yazılımcılar kendinden önce yapılan geliştirmeleri görebilmek ve yeni yaptıkları geliştirmeleri etiketleyebilmek için kaynak kontrol yönetimi araçlarına ihtiyaç duymuşlardır.
+
+Git, SubVersion, CVS, TFS, ClearCase, Mercurial gibi kaynak kontrol yönetimi (SCM) araçları da zamanla ortaya çıkmış olup günümüzde kullanılmaktadır. Yazımızda Git'ten bahsedeceğiz. Git, modern dağıtılmış bir sürüm kontrol sistemidir. Size en yararlı Git komutlarını ve neden bu komutları kullanmamız gerektiğini anlatacağım. Örneklerdeki her adımı açıklayacağım.
 <br/>
 
 There are 3 states of Git.

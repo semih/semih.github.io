@@ -9,7 +9,9 @@ lang-ref: git-commands
 categories: [git]
 tags: [git, source control management, scm]
 ---
-We have numerous sources and manage it using source control management(SCM) DevOps tools like Git, SubVersion, CVS, TFS, ClearCase, Mercurial. Git is a modern distributed version control system. I am going to tell you most useful Git commands and why we need to use those commands. I will explain each step with examples.
+As the written code increases, it becomes difficult to manage and therefore some needs arise. One of these needs is storage, the other is versioning. Storage is the process of storing codes anywhere on one or more servers. Versioning tells us the evolution of the code. Therefore, software developers needed resource control management tools to see the improvements made before it and to label the new developments.
+
+Source control management (SCM) tools such as Git, SubVersion, CVS, TFS, ClearCase, Mercurial have also emerged over time and are used today. We will talk about Git in our article. Git is a modern distributed version control system. I will tell you the most useful Git commands and why we should use them. I will explain every step in the examples.
 <br/>
 
 There are 3 states of Git.
