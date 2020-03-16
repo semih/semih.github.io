@@ -14,17 +14,17 @@ Yazılan kod çoğaldıkça yönetimi zorlaşır ve bu nedenle bazı ihtiyaçlar
 Git, SubVersion, CVS, TFS, ClearCase, Mercurial gibi kaynak kontrol yönetimi (SCM) araçları da zamanla ortaya çıkmış olup günümüzde kullanılmaktadır. Yazımızda Git'ten bahsedeceğiz. Git, modern dağıtılmış bir sürüm kontrol sistemidir. Size en yararlı Git komutlarını ve neden bu komutları kullanmamız gerektiğini anlatacağım. Örneklerdeki her adımı açıklayacağım.
 <br/>
 
-There are 3 states of Git.
-- Working directory
-- Staging area (pre-commit holding area)
-- Commit (git repository, history)
+Git'in 3 durumu vardır.
+- Çalışma dizini (Working directory)
+- Bekleme alanı (Staging area)
+- Yapma alanı (Commit)
 
 <br/>
 ![Basic Git Workflow Life Cycle](/assets/images/basic-git-workflow-lifecycle.png)
 
 <br/>
-### Configuration
-If Git is installed in our pc, it tells us the version.
+### Konfigürasyon
+Bilgisayarda Git yüklenmişse, kullanıcı adı, email, sürüm bilgilerini öğrenmek için aşağıdaki komutları çalıştırırız.
 ```shell
 ~ $ git version
    git version 2.17.2
@@ -36,7 +36,7 @@ git global user name and email configuration
 ~ $ git config --global --list
 ```
 <br/>
-### Demo App
+### Örnek Uygulama
 Now let's make a demo app and run the first commands on git. At first, create a repository on Github with the name of "github-repo". Then, clone this repository into your local workspace folder.
 
 Clone the remote repository into your local folder.
