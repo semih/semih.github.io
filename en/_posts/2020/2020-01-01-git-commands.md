@@ -121,7 +121,7 @@ To https://github.com/semih/github-demo.git
 
 <br/>
 #### Starting a Project (Fresh)
-Create a new project with "git init command
+Create a new project with "git init" command
 ```shell
 workspace $ git init fresh-project
 Initialized empty Git repository in /Users/semih/workspace/fresh-project/.git/
@@ -148,7 +148,7 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
-Git caught the untracked files:
+Git catches the untracked files.
 ```shell
 fresh-project $ mate hipster.txt
 fresh-project $ git status
@@ -184,7 +184,7 @@ nothing to commit, working tree clean
 <br/>
 #### Starting a Project (Existing source locally)
 "git init" command is executed in the project folder.
-First of all we see the untracked files. `git add .` command sends files to the staging area, commit them using "git commit" command and push them using "git push" command as well.
+First of all we see the untracked files. "git add ." command sends files to the staging area, commit them using "git commit" command and push them using "git push" command as well.
 
 ```shell
 project-folder $ git init
@@ -214,9 +214,9 @@ project-folder $ git commit -m "my first commit message"
 ```
 <br/>
 #### Starting a Project (Fork and clone)
-This part is about how to join an existing project on Github.
-Click fork button on the github page (https://github.com/scm-ninja/starter-web)
-Finally, the following `git clone` command are executed.
+This part is about how to contribute an existing project on Github.
+Fork button is clicked on the github page (https://github.com/scm-ninja/starter-web)
+Finally, the following "git clone" command are executed.
 
 ```shell
 ~ $ git clone https://github.com/semih/starter-web.git
@@ -254,6 +254,8 @@ and `git checkout -- <file>...` commands in order.
 #### Working with files (delete a folder)
 `git rm -rf <folder>...`
 
+> Difference between untracked, unstaged and staged changes are in a nutshell: Untracked changes are not in Git. Unstaged changes are in Git but not marked for commit. Staged changes are in Git and marked for commit.
+
 <br/>
 #### Git History
 * `git help log`
@@ -269,21 +271,18 @@ and `git checkout -- <file>...` commands in order.
 #### Git Aliases
 After running this command, `git hist` shortcut should be used.
 `git config --global alias.hist "log --all --graph --decorate --oneline"`
-And the shortcuts could be checked from .gitconfig file.
-
+The shortcuts could be checked from .gitconfig file.
+`
 `mate ~/.gitconfig`
 <br/>
-#### Ignoring Unwanted Files and Folders
-We don't want to push some files like .DS Store. `ls -al` command lists all files, including the dot files and folders. We have to create a ".gitignore" file, if we don't. We can create it with `mate .gitignore` command and save it. Again we have to write .DS_Store into this file. Afterwards, we add it with `git add .gitignore` command. 
+#### Ignoring Unwanted Files and Folders`
+We don't want to push some files like .DS Store. `ls -al` command lists all files, including the dot files and folders. Therefore, we have to create a ".gitignore" file. We can create it with `mate .gitignore` command and save it. Again we have to write .DS_Store into this file. Afterwards, we add it with `git add .gitignore` command. 
 
-Besides, we can use * statement in the .gitignore file. For example, we might have log files which they have .log extension. If we don't want to push those files, we can extract it with *.log statement. 
-
-or when we have log folder in workspace and we don't want to push any files in the log folder, we should add directly `log/` row in .gitignore file. After running the following commands, it appears that log folder is not pushed.
+Besides, we can use * statement in the .gitignore file. For example, we might have log files which they have .log extension. If we don't want to push those files, we can extract it with *.log statement or when we have log folder in workspace and we don't want to push any files into the log folder, we should add directly `log/` row in .gitignore file. After running the following commands, it appears that it has not been transferred to the log folder.
 
 * `git add .`
 * `git status`
 * `git commit -am "Excluding log file directory"`
-
 
 [Download source](/assets/files/BasicWorkflow.pdf)<br/>
 If you like this post, please leave a review! <br/>
