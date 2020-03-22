@@ -14,17 +14,18 @@ Yazılan kod çoğaldıkça yönetimi zorlaşır ve bu nedenle bazı ihtiyaçlar
 Git, SubVersion, CVS, TFS, ClearCase, Mercurial gibi kaynak kontrol yönetimi (SCM) araçları da zamanla ortaya çıkmış olup günümüzde kullanılmaktadır. Yazımızda Git'ten bahsedeceğiz. Git, modern dağıtılmış bir sürüm kontrol sistemidir. Size en yararlı Git komutlarını ve neden bu komutları kullanmamız gerektiğini anlatacağım. Örneklerdeki her adımı açıklayacağım.
 <br/>
 
-Git'in 3 durumu vardır.
-- Çalışma dizini (Working directory)
-- Bekleme alanı (Staging area)
-- Yapma alanı (Commit)
+Git'te 3 tane durum vardır.
+- Working directory (Çalışma alanı)
+- Staging area (Bekleme alanı)
+- Commit (İşletim alanı)
 
 <br/>
-![Basic Git Workflow Life Cycle](/assets/images/basic-git-workflow-lifecycle.png)
+![Temel Git İş Akışı Yaşam Döngüsü](/assets/images/basic-git-workflow-lifecycle.png)
 
 <br/>
 ### Konfigürasyon
-Bilgisayarda Git yüklenmişse, kullanıcı adı, email, sürüm bilgilerini öğrenmek için aşağıdaki komutları çalıştırırız.
+Bilgisayarda Git yüklenmişse, kullanıcı adı, email, sürüm bilgilerini öğrenmek ve güncellemek için aşağıdaki komutları çalıştırırız.
+
 ```shell
 ~ $ git version
    git version 2.17.2
@@ -37,27 +38,27 @@ git global user name and email configuration
 ```
 <br/>
 ### Örnek Uygulama
-Now let's make a demo app and run the first commands on git. At first, create a repository on Github with the name of "github-repo". Then, clone this repository into your local workspace folder.
+Şimdi örnek bir uygulama yapalım ve git ile ilk komutlarımızı çalıştıralım. Öncelikle Github'da "github-repo" ismiyle yeni bir repository oluşturalım. Ardından oluşuturduğumuz bu repository'yi bilgisayarımızda herhangi bir yerde oluşuturduğumuz bir workspace klasörü içine klonlayalım.
 
-Clone the remote repository into your local folder.
+Uzak repository'yi bilgisayarındaki bir(workspace) klasöre klonla.
 ```shell
 ~ $ git clone https://github.com/semih/github-demo.git
 ~ $ cd github-demo/
 ```
-Add README.md file and commit it.
+READMED.md dosyası ekle ve onu commitle.
 ```shell
 ~ $ git init
 ~ $ git add README.md
 ~ $ git commit -m "first commit"
 ```
 
-Push your files that you have added or modified into the remote branch.
+Uzak branch'e yeni eklediğin veya uzak branch'te değiştirdiğin dosyaları push et, yani gönder.
 ```shell
 ~ $ git remote add origin https://github.com/semih/github-demo.git
 ~ $ git push -u origin master
 ```
 
-We have created a file and wrote something into it. We will see the branch that we worked on it and we use the "git status" command to see if there are any changes between the working directory, the staging area, our local repository and remote repository. We have to use "git add <file>..." command to track.
+Bir dosya oluşturduk ve içine bir şeyler yazdık. "git status" komutunu kullanarak, çalıştığımız branch üstünde, working directory, staging area, local repository ve remote repository arasında herhangi bir fark olup olmadığını göreceğiz. Takip etmek için "git add <file>..." komutunu kullanmalıyız.
 ```shell
 ~ $ echo "Test Git Quick Start Demo" >> start.txt
 ~ $ ls
@@ -73,7 +74,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-After running "git add <file>..." command, git tells us there is a new file in staging area which Git describes as "Changes to be commited". The file is in the staging area awaiting the commit.
+"git add <file>..."  komutunu çalıştırdığımızda, Git, staging area'da yeni bir dosya olduğunu söyler. "Changes to be commited" uyarısı ile commit edilmemiş dosya olduğu anlaşılır. Bu dosya staging area'da commit edilmek üzere bekler.
 ```shell
 ~ $ git add start.txt 
 ~ $ git status
@@ -84,7 +85,8 @@ Changes to be committed:
 	new file:   start.txt
 ```
 
-We execute the "git commit" command and check the status again. As a result, the new file has been moved from staging area into the local repository. Because of there are no other pending changes, Git marks the working directory as clean. But our file is not yet on Github.
+"Git commit" komutunu çalıştırıp durumu tekrar kontrol ediyoruz. 
+Sonuç olarak, yeni dosya staging area'dan local repository'ye taşındı. Bekleyen başka değişiklik olmadığından Git, çalışma dizinini temiz olarak işaretler. Ancak dosyamız henüz Github'da değil.
 ```shell
 ~ $ git add .
 ~ $ git commit -m "git-commands"
@@ -97,7 +99,7 @@ Your branch is up to date with 'origin/master'.
 nothing to commit, working tree clean
 ```
 
-There is one last step we need to do, and that is a push. We need to execute "git push origin master" command. "origin" refers to the Github copy of our repository. "master" refers to branch name in the repository. If we did everything correctly, our new file should be on the Github copy of our repository.
+Yapmamız gereken son bir adım var ve bu da push etme işlemi. "git push origin master" komutunu uygulamalıyız. "origin", depomuzun Github kopyasını ifade eder. "master", depodaki branch adını ifade eder. Her şeyi doğru şekilde yaptıysak, yeni dosyamız repository'mizin Github kopyasında olmalıdır.
 ```shell
 ~ $ git push origin master
 Counting objects: 3, done.
@@ -109,19 +111,19 @@ To https://github.com/semih/github-demo.git
    785389b..2cd0af0  master -> master
 ```
 <br/>
-### Basic Git Commands
-- Starting a Project
-	- Fresh (no source yet)
-	- Existing source locally
-	- Github project (fork and clone)
-- Basic Workflow (add, commit, push, pull)
-- Working with files (rename, move & delete)
-- History and Aliases
-- Ignoring Unwanted Files
+### Başlıca Git Komutları
+- Yeni Bir Proje Başlangıcı
+	- Sıfırdan (Henüz hiç kodu olmayan)
+	- Localinde Kodu Olan
+	- Github Projesi (fork ve clone)
+- Temel İş Akışı (add, commit, push, pull)
+- Dosyalarla Çalışmak (rename, move & delete)
+- Git Tarihçe ve Takma Adlar
+- Gönderilmek İstenmeyen Dosyalar
 
 <br/>
-#### Starting a Project (Fresh)
-Create a new project with "git init command
+#### Yeni Bir Proje Başlangıcı (Sıfırdan)
+"git init" komutuyla yeni bir proje oluştur.
 ```shell
 workspace $ git init fresh-project
 Initialized empty Git repository in /Users/semih/workspace/fresh-project/.git/
@@ -139,7 +141,7 @@ HEAD		description	info		refs
 config		hooks		objects
 ```
 
-Git status command tells us that we are on the master branch.
+Git status komutu bize master branch'inde olduğumuzu söyler.
 ```shell
 .git $ cd ..
 fresh-project $ git status
@@ -148,7 +150,7 @@ No commits yet
 nothing to commit (create/copy files and use "git add" to track)
 ```
 
-Git caught the untracked files:
+Git izlenmeyen dosyaları yakalar.
 ```shell
 fresh-project $ mate hipster.txt
 fresh-project $ git status
@@ -160,7 +162,7 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-Changes to be committed means this new file "hipster.txt", is now in the Git staging area. We have a file that's waiting to be committed, but it's not committed yet.
+Changes to be commited (yapılan değişiklikler) bu yeni dosya ("hipster.txt") anlamına gelir, artık Git staging alanındadır. Commit edilmeyi bekleyen bir dosyamız var, ancak henüz işlenmedi.
 ```shell
 fresh-project $ git add hipster.txt 
 fresh-project $ git status
@@ -171,7 +173,7 @@ Changes to be committed:
 	new file:   hipster.txt
 ```
 
-If we write only "git commit", our editor lists changes to be committed and i can type the commit message on the top lines of file and save it.
+Yalnızca "git commit" yazarsak, editörümüz commit edilen değişiklikleri listeler ve dosyanın üst satırlarına commit mesajını yazıp kaydedebilirim.
 ```shell
 fresh-project $ git commit (file is opening here with our default text editor)
 [master (root-commit) 2296291] Adding new file
@@ -182,10 +184,8 @@ On branch master
 nothing to commit, working tree clean
 ```
 <br/>
-#### Starting a Project (Existing source locally)
-"git init" command is executed in the project folder.
-First of all we see the untracked files. `git add .` command sends files to the staging area, commit them using "git commit" command and push them using "git push" command as well.
-
+#### Yeni Bir Proje Başlangıcı (Localinde Kodu Olan)
+Proje klasöründeyken "git init" komutu çalıştırılır. Her şeyden önce izlenmeyen dosyaları görürüz. "git add ." komutu dosyaları staging area'ya gönderir. "git commit" komutu kullanarak onları commit ederiz ve "git push" komutunu kullanarak da push ederiz.
 ```shell
 project-folder $ git init
 Initialized empty Git repository in /Users/semih/workspace/initializr/.git/
@@ -213,10 +213,10 @@ project-folder $ git add .
 project-folder $ git commit -m "my first commit message"
 ```
 <br/>
-#### Starting a Project (Fork and clone)
-This part is about how to join an existing project on Github.
-Click fork button on the github page (https://github.com/scm-ninja/starter-web)
-Finally, the following `git clone` command are executed.
+#### Yeni Bir Proje Başlangıcı (fork ve clone)
+Bu bölüm, Github'da varolan bir projeye nasıl katkıda bulunulacağıyla ilgilidir.
+Github sayfasında (https://github.com/scm-ninja/starter-web) Fork butonuna tıklanır.
+Son olarak, "git clone" komutu çalıştırılır.
 
 ```shell
 ~ $ git clone https://github.com/semih/starter-web.git
@@ -235,27 +235,31 @@ css					robots.txt
 favicon.ico				simple.html
 ```
 <br/>
-#### Basic Workflow (stage a file)
+#### Temel İş Akışı (dosyayla çalışma)
 * `git add -A`
 * `git add -U`
 
 <br/>
-#### Basic Workflow (unstage a file)
-As known, we move the files to staging area using git add command. Sometimes we shouldn't really move these files or we may have moved it by mistake. All we need to do is using `git reset HEAD <file>...` command to unstage as the terminal says.
-Also `git checkout -- <file>...` command cleans the working directory and discard the changes.
+#### Temel İş Akışı (dosyayı bırakma)
+Bilindiği üzere, git add komutu kullanarak dosyaları staging area'ya taşırız. Bazen bu dosyaları gerçekten taşımak istemeyeiz veya yanlışlıkla taşımış olabiliriz. Bütün ihtiyacımız olan şey `git reset HEAD <file>...` komutunu çalıştırmak ve dosyaların unstage olmasını sağlamak. Bunun yanında `git checkout -- <file>...` komutu working directory'yi temizler ve değişiklikleri iptal eder.
 
 <br/>
-#### Working with files (delete a file)
+#### Dosyalarla Çalışmak (dosya silme)
 `git rm <file>...`
 We can undo the deleted file using `git reset HEAD <file>...`
 and `git checkout -- <file>...` commands in order.
 
 <br/>
-#### Working with files (delete a folder)
+#### Dosyalarla Çalışmak (klasör silme)
 `git rm -rf <folder>...`
 
+
+> İzlenmemiş, stage(stage'e alınmış) ve unstage(stage'e alınmamış) değişiklikler arasındaki fark özetle: 
+İzlenmemiş değişiklikler Git'te değildir. Stage'e alınmamış değişiklikler Git'te ancak commit için işaretlenmemiş. 
+Stage'e alınmış değişiklikler ise Git'te ve commit için işaretlenmiştir.
+
 <br/>
-#### Git History
+#### Git Tarihçe
 * `git help log`
 * `git log`
 * `git log --abbrev-commit`
@@ -266,25 +270,25 @@ and `git checkout -- <file>...` commands in order.
 * `git log --follow -- <file>`
 
 <br/>
-#### Git Aliases
-After running this command, `git hist` shortcut should be used.
+#### Git Takma Adlar
+Bu komutu çalıştırdıktan sonra `git hist` kısayolu kullanılır.
 `git config --global alias.hist "log --all --graph --decorate --oneline"`
-And the shortcuts could be checked from .gitconfig file.
+Kısayollar .gitconfig dosyasından kontrol edilebilir.
 
 `mate ~/.gitconfig`
 <br/>
-#### Ignoring Unwanted Files and Folders
+#### Gönderilmek İstenmeyen Dosyalar ve Klasörler
 We don't want to push some files like .DS Store. `ls -al` command lists all files, including the dot files and folders. We have to create a ".gitignore" file, if we don't. We can create it with `mate .gitignore` command and save it. Again we have to write .DS_Store into this file. Afterwards, we add it with `git add .gitignore` command. 
 
-Besides, we can use * statement in the .gitignore file. For example, we might have log files which they have .log extension. If we don't want to push those files, we can extract it with *.log statement. 
+.DS Store gibi bazı dosyaları göndermek istemiyoruz. `ls -al` komutu nokta dosyaları ve klasörler dahil tüm dosyaları listeler. Bunun için ".gitignore" dosyası yaratmalıyız. `mate .gitignore` komutuyla oluşturabilir ve kaydedebiliriz. Yine bu dosyaya .DS_Store yazmamız gerekiyor. Daha sonra `git add .gitignore` komutuyla ekliyoruz.
 
-or when we have log folder in workspace and we don't want to push any files in the log folder, we should add directly `log/` row in .gitignore file. After running the following commands, it appears that log folder is not pushed.
+Ayrıca, .gitignore dosyasındaki * ifadesini kullanabiliriz. Örneğin, .log uzantılı günlük dosyalarımız olabilir. Bu dosyaları push etmek istemiyorsak, * .log deyimiyle hariç tutabiliriz veya workspace'te log klasörümüz olduğunda ve log klasörüne herhangi bir dosya göndermek istemediğimizde, doğrudan .gitignore dosyasına `log /` satırı eklemeliyiz. Aşağıdaki komutları çalıştırdıktan sonra, log klasörünün push edilmediği(aktarılmadığı) görülür.
 
 * `git add .`
 * `git status`
 * `git commit -am "Excluding log file directory"`
 
 
-[Download source](/assets/files/BasicWorkflow.pdf)<br/>
-If you like this post, please leave a review! <br/>
-Hope to see you in the next article...
+[Kaynağı İndir](/assets/files/BasicWorkflow.pdf)<br/>
+Bu yazıyı beğendiyseniz lütfen yorum bırakın! <br/>
+Bir sonraki yazıda görüşmek üzere...
