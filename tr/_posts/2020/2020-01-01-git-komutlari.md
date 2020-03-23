@@ -14,7 +14,7 @@ Yazılan koddaki satır sayısı arttıkça kodu yönetmek zorlaşır. Bu nedenl
 Git, SubVersion, CVS, TFS, ClearCase, Mercurial gibi sürüm kontrol kaynak kod yönetim (SCM) araçları da zamanla ortaya çıkmış olup günümüzde kullanılmaktadır. Bu yazıda bu araçlardan biri olan Git'ten bahsedeceğiz. Git, modern dağıtık bir sürüm kontrol sistemidir. En yararlı Git komutlarını ve neden bu komutları kullanmamız gerektiğini anlatacağım. Örneklerdeki her adımı açıklayacağım.
 <br/>
 
-Git'te 3 tane durum vardır.
+Git'te 3 durum vardır:
 - Working directory (Çalışma alanı)
 - Staging area (Bekleme alanı)
 - Commit (İşletim alanı)
