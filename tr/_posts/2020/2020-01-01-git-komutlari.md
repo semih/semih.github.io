@@ -11,7 +11,7 @@ tags: [git, source control management, scm]
 ---
 Yazılan koddaki satır sayısı arttıkça kodu yönetmek zorlaşır. Bu nedenle bazı ihtiyaçlar ortaya çıkmıştır. Bu ihtiyaçlardan biri depolama, diğeri versiyonlamadır. Depolama, kodların bir veya birden fazla sunucuda, herhangi bir yerde saklanması işlemidir. Versiyonlama ise kodun geçirdiği evrimi bize anlatır. Bu yüzden yazılımcılar daha önceden yapılan geliştirmeleri görebilmek ve yeni yaptıkları geliştirmeleri etiketleyebilmek için sürüm kontrol ve kaynak kod yönetimi araçlarına ihtiyaç duymuşlardır.
 
-Git, SubVersion, CVS, TFS, ClearCase, Mercurial gibi sürüm kontrol kaynak kod yönetim (SCM) araçları da zamanla ortaya çıkmış olup günümüzde kullanılmaktadır. Bu yazıda bu araçlardan biri olan Git'ten bahsedeceğiz. Git, modern dağıtık bir sürüm kontrol sistemidir. En yararlı Git komutlarını ve neden bu komutları kullanmamız gerektiğini anlatacağım. Örneklerdeki her adımı açıklayacağım.
+Git, SubVersion, CVS, TFS, ClearCase, Mercurial gibi sürüm kontrol ve kaynak kod yönetim (SCM) araçları da zamanla ortaya çıkmış olup günümüzde kullanılmaktadır. Bu yazıda bu araçlardan biri olan Git'ten bahsedeceğiz. Git, modern dağıtık bir sürüm kontrol sistemidir. En yararlı Git komutlarını ve neden bu komutları kullanmamız gerektiğini anlatacağım. Örneklerdeki her adımı açıklayacağım.
 <br/>
 
 Git'te 3 durum vardır:
