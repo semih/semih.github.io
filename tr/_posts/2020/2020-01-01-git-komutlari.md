@@ -30,7 +30,7 @@ Bilgisayarda Git yüklüyse kullanıcı adı, email, sürüm bilgilerini öğren
 ~ $ git version
    git version 2.17.2
 ```
-git global user name and email configuration
+git global kullanıcı adı ve e-posta konfigürasyonu
 ```shell
 ~ $ git config --global user.name "username"
 ~ $ git config --global user.email "email"
@@ -45,7 +45,7 @@ Uzak repository'yi bilgisayarındaki bir(workspace) klasöre klonla.
 ~ $ git clone https://github.com/semih/github-demo.git
 ~ $ cd github-demo/
 ```
-READMED.md dosyası ekle ve onu commitle.
+READMED.md dosyası ekle ve commitle.
 ```shell
 ~ $ git init
 ~ $ git add README.md
