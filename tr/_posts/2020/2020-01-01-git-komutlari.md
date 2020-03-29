@@ -38,7 +38,7 @@ git global kullanıcı adı ve e-posta konfigürasyonu
 ```
 <br/>
 ### Örnek Uygulama
-Şimdi örnek bir uygulama yapalım ve git ile ilk komutlarımızı çalıştıralım. Öncelikle Github'da "github-repo" ismiyle yeni bir repository oluşturalım. Ardından oluşuturduğumuz bu repository'yi bilgisayarımızda herhangi bir yerde oluşuturduğumuz bir workspace klasörü içine klonlayalım.
+Şimdi örnek bir uygulama yapalım ve git ile ilk komutlarımızı çalıştıralım. Öncelikle Github'da "github-repo" ismiyle yeni bir repository oluşturalım. Ardından bu repository'yi bilgisayarımızda herhangi bir dizinde oluşturduğumuz bir workspace klasörü içine klonlayalım.
 
 Uzak repository'yi bilgisayarındaki bir(workspace) klasöre klonla.
 ```shell
