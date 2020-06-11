@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Değişkenler ve Temel Veri Tipleri"
-date: 2019-01-15 23:00:00 Wednesday
+date: 2019-01-01 23:00:00 Wednesday
 author: semih
 comments: true
 lang: tr
@@ -17,10 +17,10 @@ Java, nesne yönelimli bir programlama dili olmasına rağmen tüm tipler object
 
 Veri Tipi    | Açıklama                          | Uzunluk | Örnek | Değer Aralığı
 ------- | ------------------------------------- | -------- | ----------- | -----------
-byte		| twos complement integer  | 8 bit   | (none) | -2^7...2^7-1
-short		| twos complement integer  | 16 bit  | (none) | -2^15...2^15-1
-int			| twos complement integer  | 32 bit  | -2, -1, 0, 1, 2 | -2^31...2^31-1
-long		| twos complement integer  | 64 bit  | -2L, -1L, 0L, 1L, 2L | -2^63...2^63-1
+byte		| iki tümleyeni integer  | 8 bit   | (none) | -2^7...2^7-1
+short		| iki tümleyeni integer  | 16 bit  | (none) | -2^15...2^15-1
+int			| iki tümleyeni integer  | 32 bit  | -2, -1, 0, 1, 2 | -2^31...2^31-1
+long		| iki tümleyeni integer  | 64 bit  | -2L, -1L, 0L, 1L, 2L | -2^63...2^63-1
 float  	| IEEE 754 kayan nokta  | 32 bit  | 1.23e100f, -1.23e-100f, .3f, 3.14F | 
 double 	| IEEE 754 kayan nokta  | 64 bit  | 1.23456e300d, -1.23456e-300d, 1e1d | 
 boolean   | true veya false            | 1 bit    | true, false | 0...1
