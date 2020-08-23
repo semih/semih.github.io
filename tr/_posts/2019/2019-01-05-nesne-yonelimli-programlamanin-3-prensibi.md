@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Değişkenler ve Temel Veri Tipleri"
+title: "Nesne Yönelimli Programlamanın 3 Prensibi"
 date: 2019-01-05 23:00:00 Wednesday
 author: semih
 comments: true
