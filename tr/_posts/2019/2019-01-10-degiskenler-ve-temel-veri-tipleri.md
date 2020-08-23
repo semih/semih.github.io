@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Değişkenler ve Temel Veri Tipleri"
-date: 2019-01-01 23:00:00 Wednesday
+date: 2019-01-10 23:00:00 Wednesday
 author: semih
 comments: true
 lang: tr
