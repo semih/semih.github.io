@@ -55,8 +55,8 @@ public class Program {
         
         Scanner scanner = new Scanner(System.in);
         value = scanner.nextDouble();
-        o.SetScore(value);
-        System.out.print(o.GetScore());
+        student.SetScore(value);
+        System.out.print(student.GetScore());
 	}
 }
 ```
