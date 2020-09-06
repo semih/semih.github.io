@@ -7,7 +7,7 @@ comments: true
 lang: tr
 lang-ref: data-types
 categories: [java]
-tags: [java, oop, encapsulation, inheritance, ]
+tags: [java, oop, encapsulation, inheritance, polymorphism, abstraction, immutable]
 ---
 Nesne yönelimli programlama(object oriented programming - oop) Java'nın temelidir. Tüm nesne yönelimli programlama dilleri, nesne yönelimli modeli uygularken size yardımcı olan mekanizmaları içerir. Bunlar sarmalama(encapsulation), kalıtım(inheritance) ve çok biçimliliktir(polymorphism). Bu kavramlara göz atalım.
 <br/>
@@ -22,22 +22,22 @@ package encapsulation;
 
 public class Student
 {
-	public int id;
-	public String name;
-	public String schoolNumber;
-	private double score; // score alanı kapsülleniyor.
+  public int id;
+  public String name;
+  public String schoolNumber;
+  private double score; // score alanı kapsülleniyor.
 
-	public void setScore(double value) {
-		if (value > 0 && value < 100) // set metoduyla verilen değerin uygun olması durumunda score alanına atama yapılır
-			score = value;
+  public void setScore(double value) {
+    if (value > 0 && value < 100) // set metoduyla verilen değerin uygun olması durumunda score alanına atama yapılır
+      score = value;
 
-		else //uygun olmaması durumunda kullanıcıya hata mesajı verilir.
-			System.out.println("score is invalid");
-	}
+    else //uygun olmaması durumunda kullanıcıya hata mesajı verilir.
+      System.out.println("score is invalid");
+  }
 	
-	public double getScore() {
-		return score;
-	}
+  public double getScore() {
+    return score;
+  }
 }
 ```
 
@@ -47,17 +47,16 @@ Program sınıfında bir Student nesnesi oluşturulup değer ataması ise şu ş
 package encapsulation;
 import java.util.Scanner;
 
-public class Program {
-
-	public static void main(String[] args) {
-        double value; //value değişkenine atama yapılmalıdır. Bu haliyle uygulama hata verecektir.
-        Student student = new Student();
+class Program {
+  public static void main(String[] args) {
+    double value; //value değişkenine atama yapılmalıdır. Bu haliyle uygulama hata verecektir.
+    Student student = new Student();
         
-        Scanner scanner = new Scanner(System.in);
-        value = scanner.nextDouble();
-        student.setScore(value);
-        System.out.print(student.GetScore());
-	}
+    Scanner scanner = new Scanner(System.in);
+    value = scanner.nextDouble();
+    student.setScore(value);
+    System.out.print(student.GetScore());
+  }
 }
 ```
 Örnekte student nesnesinin score bilgisine doğrudan değer atanmadığı görülüyor. Program.java sınıfı içinde ```student.score=value``` şeklinde atama yapılmak istendiğinde (score değişkeninin erişim belirteci private olduğundan) kod parçası hata verecektir. Bunun yerine ```student.setScore(value)``` şeklinde metot çağrılarak değer atamasının yapılması sağlanmıştır.
@@ -67,7 +66,6 @@ Setter metotlarını kaldırsaydık ve yeni bir constructor oluşturarak sınıf
 
 ### Kalıtım
 Kalıtım(inheritance), bir nesnenin başka bir nesnenin özelliklerini devralmasıdır. Bu, hiyerarşik sınıflandırma kavramını desteklediği için önemlidir. Örnek vermek gerekirse köpek, memeli ve hayvan sınıfları olduğunu düşünelim. Örneğin Golden, hayvanlar sınıfı altındaki memeliler sınıfının bir parçası olan köpek sınıflandırmasındadır. Hiyerarşi kullanımı olmasaydı, her bir sınıfın ihtiyacı olan tüm karakteristiklerin açıkça tanımlanması gerekirdi. Ancak kalıtımın kullanılmasıyla sadece sınıf içinde kendine has özelliklerin tanımlanması yeterli olur. Genel nitelikler üst sınıftan devralınabilir. Böylece kalıtım sayesinde bir nesne daha genel bir başka nesnenin belirli bir örneği olabilir. 
-
 
 Hayvan -> Büyüklük, Zeka, İskelet Sistemi Tipi, Yerler, Nefes Alırlar, Uyurlar
 Memeliler -> Diş Tipi, Meme Bezleri 
@@ -81,6 +79,7 @@ Bir kalıtım ağacına ait sınıflarda aynı imza (dönüş tipi, ad, parametr
 
 Aşağıdaki örnekte görüldüğü üzere 	```Animal``` ana sınıfına ait ```animalSound``` metodu çağrılıyor. Hayvan ana sınıfından domuz, kedi, köpek, kuş gibi sınıflar türetilebilir ve onlar hayvan sesini kendi içlerinde farklılaştırabilir, ```animalSound``` metoduna farklı görevler yükleyebilir. Böylece nesne yönelimli programlanın çok biçimlilik özelliği, tek bir eylemi farklı şekillerde gerçekleştirmemizi sağlar. 
 <br />
+
 ```java
 class Animal {
   public void animalSound() {
