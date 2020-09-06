@@ -10,7 +10,7 @@ categories: [java]
 tags: [java, oop, encapsulation, inheritance, polymorphism, abstraction, immutable]
 ---
 Nesne yönelimli programlama(object oriented programming - oop) Java'nın temelidir. Tüm nesne yönelimli programlama dilleri, nesne yönelimli modeli uygularken size yardımcı olan mekanizmaları içerir. Bunlar sarmalama(encapsulation), kalıtım(inheritance) ve çok biçimliliktir(polymorphism). Bu kavramlara göz atalım.
-
+<br />
 ### Sarmalama (Encapsulation)
 Bu özellik, dilin nesne kullanıcısından gereksiz uygulama ayrıntılarını saklar. Oluşturulan bir sınıf (class) içinde kullanıcının işlemlerini daha kolay gerçekleştirebilmesi için bazı işlemler birleştirilerek tek bir işlem gibi gösterilir. Bu birleştirme işlemine encapsulation denir.
 
@@ -59,10 +59,8 @@ class Program {
 }
 ```
 Örnekte student nesnesinin score bilgisine doğrudan değer atanmadığı görülüyor. Program.java sınıfı içinde ```student.score=value``` şeklinde atama yapılmak istendiğinde (score değişkeninin erişim belirteci private olduğundan) kod parçası hata verecektir. Bunun yerine ```student.setScore(value)``` şeklinde metot çağrılarak değer atamasının yapılması sağlanmıştır.
-<br/>
 Setter metotlarını kaldırsaydık ve yeni bir constructor oluşturarak sınıfın içinde yer alan tüm değişkenleri bu constructor'da set etseydik, bu sınıfı kullanan istemci sadece nesne üretirken değer ataması yapabilecek, sonradan bu değerler değiştirilemeyecekti. Böyle sınıflara immutable sınıf adı verilir. Immutable olarak tasarlanan sınıflar çok kanallı programlamada thread korumalıdır(thread-safe). Değişmez sınıf nesnelerinin içerikleri değişmeyeceği için program akışı içinde içerikte istenmeyen değişikliklerin olmasının önüne geçecektir.
 <br/>
-
 ### Kalıtım (Inheritance)
 Kalıtım(inheritance), bir nesnenin başka bir nesnenin özelliklerini devralmasıdır. Bu, hiyerarşik sınıflandırma kavramını desteklediği için önemlidir. Örnek vermek gerekirse köpek, memeli ve hayvan sınıfları olduğunu düşünelim. Örneğin Golden, hayvanlar sınıfı altındaki memeliler sınıfının bir parçası olan köpek sınıflandırmasındadır. Hiyerarşi kullanımı olmasaydı, her bir sınıfın ihtiyacı olan tüm karakteristiklerin açıkça tanımlanması gerekirdi. Ancak kalıtımın kullanılmasıyla sadece sınıf içinde kendine has özelliklerin tanımlanması yeterli olur. Genel nitelikler üst sınıftan devralınabilir. Böylece kalıtım sayesinde bir nesne daha genel bir başka nesnenin belirli bir örneği olabilir. 
 
@@ -70,7 +68,7 @@ Hayvan -> Büyüklük, Zeka, İskelet Sistemi Tipi, Yerler, Nefes Alırlar, Uyur
 Memeliler -> Diş Tipi, Meme Bezleri 
 
 Memeliler, daha kesin olarak tanımlanmış hayvanlar olduğundan, hayvanların tüm niteliklerini devralırlar. Türetilen bir alt sınıf, sınıf hiyerarşisinde atalarının tüm niteliklerini devralır.
-
+<br />
 ### Çok Biçimlilik (Polymorphism)
 Birden fazla sınıfın ortak kullanacağı bir metot varsa, bu metot her bir sınıfın kalıtım alacağı ana sınıf içerisinde tanımlanabilir. Davranış şekillerindeki farklılıklar ise her sınıfın kendi yapısı içinde ifade edilir.
 
