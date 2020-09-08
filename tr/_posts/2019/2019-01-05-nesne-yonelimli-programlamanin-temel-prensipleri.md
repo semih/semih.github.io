@@ -11,7 +11,7 @@ tags: [java, oop, encapsulation, inheritance, polymorphism, abstraction, immutab
 ---
 Nesne Yönelimli Programlama(Object Oriented Programming - OOP) Java'nın temelidir. Tüm nesne yönelimli programlama dilleri, nesne yönelimli modeli uygularken size yardımcı olan mekanizmaları içerir. 
 
-Nesne Yönelimli Programlama teorisinde 4 temel özelliğin gerçekleştirilmesi zorunlu sayılmıştır. Bir tanesi bile eksik olduğunda dil saf Nesne Yönelimli Programlama sayılmamıştır. Bunlar: 
+Nesne Yönelimli Programlama teorisinde 4 temel özelliğin gerçekleştirilmesi zorunlu sayılmıştır. Bir tanesi bile eksik olduğunda dil saf Nesne Yönelimli Programlama yaklaşımına uygun sayılmamıştır. Bunlar: 
 
 * Sarmalama (Encapsulation), 
 * Kalıtım (Inheritance), 
