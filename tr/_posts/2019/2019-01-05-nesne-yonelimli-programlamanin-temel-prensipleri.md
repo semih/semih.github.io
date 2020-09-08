@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Nesne Yönelimli Programlamanın Temel Prensipleri"
+title: "Nesne Yönelimli Programlama'nın Temel Prensipleri"
 date: 2019-01-05 23:00:00 Wednesday
 author: semih
 comments: truesound
