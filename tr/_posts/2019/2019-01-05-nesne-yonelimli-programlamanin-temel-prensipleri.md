@@ -9,7 +9,7 @@ lang-ref: data-types
 categories: [java]
 tags: [java, oop, encapsulation, inheritance, polymorphism, abstraction, immutable]
 ---
-Nesne Yönelimli Programlama(Object Oriented Programming - OOP) Java'nın temelidir. Tüm nesne yönelimli programlama dilleri, nesne yönelimli modeli uygularken size yardımcı olan mekanizmaları içerir. 
+Nesne Yönelimli Programlama(Object Oriented Programming) Java'nın temelidir. Tüm nesne yönelimli programlama dilleri, nesne yönelimli modeli uygularken size yardımcı olan mekanizmaları içerir. 
 
 Nesne Yönelimli Programlama teorisinde 4 temel özelliğin gerçekleştirilmesi zorunlu sayılmıştır. Bir tanesi bile eksik olduğunda dil saf Nesne Yönelimli Programlama yaklaşımına uygun sayılmamıştır. Bunlar: 
 
@@ -32,10 +32,11 @@ public class Student
   public int id;
   public String name;
   public String schoolNumber;
-  private double score; // score alanı sarmalanıyor.
-
+  private double score;
+  
+  // set metoduyla uygun değer geldiğinde score alanına atama yapılır.
   public void setScore(double value) {
-    if (value > 0 && value < 100) // set metoduyla verilen değerin uygun olması durumunda score alanına atama yapılır
+    if (value > 0 && value < 100)
       score = value;
 
     else //uygun olmaması durumunda kullanıcıya hata mesajı verilir.
@@ -72,8 +73,8 @@ Setter metotlarını kaldırsaydık ve yeni bir constructor oluşturarak sınıf
 ### Kalıtım (Inheritance)
 Kalıtım(inheritance), bir nesnenin başka bir nesnenin özelliklerini devralmasıdır. Bu, hiyerarşik sınıflandırma kavramını desteklediği için önemlidir. Örnek vermek gerekirse köpek, memeli ve hayvan sınıfları olduğunu düşünelim. Örneğin Golden, hayvanlar sınıfı altındaki memeliler sınıfının bir parçası olan köpek sınıflandırmasındadır. Hiyerarşi kullanımı olmasaydı, her bir sınıfın ihtiyacı olan tüm karakteristiklerin açıkça tanımlanması gerekirdi. Ancak kalıtımın kullanılmasıyla sadece sınıf içinde kendine has özelliklerin tanımlanması yeterli olur. Genel nitelikler üst sınıftan devralınabilir. Böylece kalıtım sayesinde bir nesne daha genel bir başka nesnenin belirli bir örneği olabilir. 
 
-Hayvan -> Büyüklük, Zeka, İskelet Sistemi Tipi, Yerler, Nefes Alırlar, Uyurlar
-Memeliler -> Diş Tipi, Meme Bezleri 
+<b>Hayvan</b> -> Büyüklük, Zeka, İskelet Sistemi Tipi, Yerler, Nefes Alırlar, Uyurlar
+<b>Memeliler</b> -> Diş Tipi, Meme Bezleri 
 
 Memeliler, daha kesin olarak tanımlanmış hayvanlar olduğundan, hayvanların tüm niteliklerini devralırlar. Türetilen bir alt sınıf, sınıf hiyerarşisinde atalarının tüm niteliklerini devralır.
 <br />
@@ -86,6 +87,8 @@ Aşağıdaki örnekte görüldüğü üzere 	```Animal``` ana sınıfına ait ``
 <br />
 
 ```java
+package polymorphism;
+
 public class Animal {
   public void sound() {
     System.out.println("The animal makes a sound");
@@ -117,14 +120,14 @@ public class Program {
 ```
 <br />
 ### Soyutlama (Abstraction)
-Alt sınıfların ortak özelliklerini, işlevlerini taşıyan ancak bir nesne oluşturulamayan üst sınıflara soyut(abstract) sınıflar denir. Soyut sınıf içinde şablon olması açısından metot tanımları yapılabilir veya <b>soyut metotlar</b> yazılabilir. Soyut metoda sahip bir sınıf soyut hale gelir ve <b><u>soyut sınıflardan nesne oluşturulamaz</u></b>.
+Alt sınıfların ortak özelliklerini, işlevlerini taşıyan ancak bir nesne oluşturulamayan üst sınıflara <b>soyut(abstract) sınıflar</b> denir. Soyut sınıf içinde şablon olması açısından metot tanımları yapılabilir veya <b>soyut metotlar</b> yazılabilir. Soyut metoda sahip bir sınıf soyut hale gelir ve <b><u>soyut sınıflardan nesne oluşturulamaz</u></b>.
 
- Java dilinde sınıfı soyut olarak tanımlamak için abstract veya interface anahtar sözcükleri kullanılır.
+ Java dilinde sınıfı soyut olarak tanımlamak için <b>abstract</b> veya <b>interface</b> anahtar sözcükleri kullanılır.
 
 
-Aşağıda yer alan kod parçasında Employee tipinde bir soyut sınıf ve bu soyut sınıftan türeyen Contractor ve FullTimeEmployee tipinde 2 farklı alt sınıf vardır. 
+Aşağıda yer alan kod parçasında <b>Employee</b> tipinde bir soyut sınıf ve bu soyut sınıftan türeyen <b>Contractor</b> ve <b>FullTimeEmployee</b> tipinde 2 farklı alt sınıf vardır. 
 
-Her 2 tip çalışanın da ismi ve saatlik ücret bilgisi olacağından bu özellikler üst sınıfta tanımlanmıştır. Ancak çalışanların saatlik çalışma ücretini hesaplayan metot alt sınıfların kendi içinde farklılık göstermektedir. Bu implementasyonun abstract sınıf kullanılarak soyutlanması sağlanmıştır.
+Her iki tip çalışanın da ismi ve saatlik ücret bilgisi olacağından bu özellikler üst sınıfta tanımlanmıştır. Ancak çalışanların saatlik çalışma ücretini hesaplayan metot alt sınıfların kendi içinde farklılık göstermektedir. Bu implementasyonun abstract sınıf kullanılarak soyutlanması sağlanmıştır.
     
 ```java
 package abstraction;
