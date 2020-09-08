@@ -18,7 +18,7 @@ Nesne Yönelimli Programlama teorisinde 4 temel özelliğin gerçekleştirilmesi
 * Çok Biçimlilik (Polymorphism), 
 * Soyutlama (Abstraction)
 
-
+<br />
 ### Sarmalama (Encapsulation)
 Bu özellik, dilin nesne kullanıcısından gereksiz uygulama ayrıntılarını saklar. Oluşturulan bir sınıf (class) içinde kullanıcının işlemleri daha kolay gerçekleştirebilmesi için bazı işlemler birleştirilerek tek bir işlem gibi gösterilir. Bu birleştirme işlemine encapsulation denir.
 
