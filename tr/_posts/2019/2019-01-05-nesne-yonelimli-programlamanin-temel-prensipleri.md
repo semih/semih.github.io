@@ -54,7 +54,7 @@ Program sınıfında bir Student nesnesi oluşturulup değer ataması ise şu ş
 package encapsulation;
 import java.util.Scanner;
 
-class Program {
+public class Program {
   public static void main(String[] args) {
     double value; //value değişkenine atama yapılmalıdır. Bu haliyle uygulama hata verecektir.
     Student student = new Student();
@@ -86,19 +86,19 @@ Aşağıdaki örnekte görüldüğü üzere 	```Animal``` ana sınıfına ait ``
 <br />
 
 ```java
-class Animal {
+public class Animal {
   public void sound() {
     System.out.println("The animal makes a sound");
   }
 }
 
-class Pig extends Animal {
+public class Pig extends Animal {
   public void sound() {
     System.out.println("The pig says: wee wee");
   }
 }
 
-class Dog extends Animal {
+public class Dog extends Animal {
   public void sound() {
     System.out.println("The dog says: bow wow");
   }
