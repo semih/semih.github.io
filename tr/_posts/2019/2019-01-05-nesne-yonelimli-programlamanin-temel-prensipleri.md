@@ -119,7 +119,7 @@ public class Program {
 ### Soyutlama (Abstraction)
 Alt sınıfların ortak özelliklerini, işlevlerini taşıyan ancak bir nesne oluşturulamayan üst sınıflara soyut(abstract) sınıflar denir. Soyut sınıf içinde şablon olması açısından metot tanımları yapılabilir veya <b>soyut metotlar</b> yazılabilir. Soyut metoda sahip bir sınıf soyut hale gelir ve <b><u>soyut sınıflardan nesne oluşturulamaz</u></b>.
 
- Java dilinde sınıfı soyut olarak tanımlamak için abstract veya interface keywordleri kullanılır.
+ Java dilinde sınıfı soyut olarak tanımlamak için abstract veya interface anahtar sözcükleri kullanılır.
 
 
 Aşağıda yer alan kod parçasında Employee tipinde bir soyut sınıf ve bu soyut sınıftan türeyen Contractor ve FullTimeEmployee tipinde 2 farklı alt sınıf vardır. 
