@@ -22,7 +22,7 @@ Nesne Yönelimli Programlama teorisinde 4 temel özelliğin gerçekleştirilmesi
 ### Sarmalama (Encapsulation)
 Bu özellik, dilin nesne kullanıcısından gereksiz uygulama ayrıntılarını saklar. Oluşturulan bir sınıf (class) içinde kullanıcının işlemleri daha kolay gerçekleştirebilmesi için bazı işlemler birleştirilerek tek bir işlem gibi gösterilir. Bu birleştirme işlemine encapsulation denir.
 
-Erişim belirteçleri (access modifier) sayesinde encapsulation çok daha kolay yapılmaktadır. Erişim belirteçleri, oluşturulan sınıf veya sınıf içindeki elemanların erişim seviyelerini belirlemek için kullanılan anahtar kelimeler grubuna verilen isimdir. Encapsulation "private" değişkenlerin metotlar gibi kullanılmasına yardımcı olur. Okuma (Read Only) işleminin yanısıra okuma - yazma (read - write) işleminin yapılmasını sağlar. Özetle sınıfı kontrolsüz değişime kapamak için kullanılır diyebiliriz. Böylelikle yanlış işlemlerin gerçekleşmeyeceğinden emin olabiliriz.
+Erişim belirteçleri (access modifier) sayesinde encapsulation çok daha kolay yapılmaktadır. Erişim belirteçleri, oluşturulan sınıf veya sınıf içindeki elemanların erişim seviyelerini belirlemek için kullanılan anahtar kelimeler grubuna verilen isimdir. Encapsulation "private" değişkenlerin metotlar gibi kullanılmasına yardımcı olur. Okuma (Read Only) işleminin yanısıra okuma - yazma (Read - Write) işleminin yapılmasını sağlar. Özetle sınıfı kontrolsüz değişime kapamak için kullanılır diyebiliriz. Böylelikle yanlış işlemlerin gerçekleşmeyeceğinden emin olabiliriz.
 
 ```java
 package encapsulation;
@@ -66,7 +66,7 @@ class Program {
   }
 }
 ```
-Örnekte student nesnesinin score bilgisine doğrudan değer atanmadığı görülüyor. Program.java sınıfı içinde ```student.score=value``` şeklinde atama yapılmak istendiğinde (score değişkeninin erişim belirteci private olduğundan) kod parçası hata verecektir. Bunun yerine ```student.setScore(value)``` şeklinde metot çağrılarak değer atamasının yapılması sağlanmıştır.
+Örnekte ```student``` nesnesinin ```score``` bilgisine doğrudan değer atanmadığı görülüyor. Program.java sınıfı içinde ```student.score=value``` şeklinde atama yapılmak istendiğinde (score değişkeninin erişim belirteci private olduğundan) kod parçası hata verecektir. Bunun yerine ```student.setScore(value)``` şeklinde metot çağrılarak değer atamasının yapılması sağlanmıştır.
 Setter metotlarını kaldırsaydık ve yeni bir constructor oluşturarak sınıfın içinde yer alan tüm değişkenleri bu constructor'da set etseydik, bu sınıfı kullanan istemci sadece nesne üretirken değer ataması yapabilecek, sonradan bu değerler değiştirilemeyecekti. Böyle sınıflara immutable sınıf adı verilir. Immutable olarak tasarlanan sınıflar çok kanallı programlamada thread korumalıdır(thread-safe). Değişmez sınıf nesnelerinin içerikleri değişmeyeceği için program akışı içinde içerikte istenmeyen değişikliklerin olmasının önüne geçecektir.
 <br/>
 ### Kalıtım (Inheritance)
