@@ -9,8 +9,15 @@ lang-ref: data-types
 categories: [java]
 tags: [java, oop, encapsulation, inheritance, polymorphism, abstraction, immutable]
 ---
-Nesne yönelimli programlama(object oriented programming - oop) Java'nın temelidir. Tüm nesne yönelimli programlama dilleri, nesne yönelimli modeli uygularken size yardımcı olan mekanizmaları içerir. Bunlar sarmalama(encapsulation), kalıtım(inheritance) ve çok biçimliliktir(polymorphism). Bu kavramlara göz atalım.
-<br />
+Nesne Yönelimli Programlama(Object Oriented Programming - OOP) Java'nın temelidir. Tüm nesne yönelimli programlama dilleri, nesne yönelimli modeli uygularken size yardımcı olan mekanizmaları içerir. 
+
+Nesne Yönelimli Programlama teorisinde 4 temel özelliğin gerçekleştirilmesi zorunlu sayılmıştı. Bir tanesi bile eksik olduğunda dil saf Nesne Yönelimli Programlama sayılmamıştır. Bunlar: 
+
+* Sarmalama (Encapsulation), 
+* Kalıtım (Inheritance), 
+* Çok Biçimlilik (Polymorphism), 
+* Soyutlama (Abstraction)
+
 ### Sarmalama (Encapsulation)
 Bu özellik, dilin nesne kullanıcısından gereksiz uygulama ayrıntılarını saklar. Oluşturulan bir sınıf (class) içinde kullanıcının işlemlerini daha kolay gerçekleştirebilmesi için bazı işlemler birleştirilerek tek bir işlem gibi gösterilir. Bu birleştirme işlemine encapsulation denir.
 
