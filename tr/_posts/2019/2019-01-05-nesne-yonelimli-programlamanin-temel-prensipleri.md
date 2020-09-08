@@ -22,7 +22,7 @@ Nesne Yönelimli Programlama teorisinde 4 temel özelliğin gerçekleştirilmesi
 ### Sarmalama (Encapsulation)
 Bu özellik, dilin nesne kullanıcısından gereksiz uygulama ayrıntılarını saklar. Oluşturulan bir sınıf (class) içinde kullanıcının işlemlerini daha kolay gerçekleştirebilmesi için bazı işlemler birleştirilerek tek bir işlem gibi gösterilir. Bu birleştirme işlemine encapsulation denir.
 
-Erişim belirteçleri (access modifier) sayesinde kapsülleme çok daha kolay yapılmaktadır. Erişim belirteçleri, oluşturulan sınıf veya sınıf içindeki elemanların erişim seviyelerini belirlemek için kullanılan anahtar kelimeler grubuna verilen isimdir. Encapsulation "private" değişkenlerin metotlar gibi kullanılmasına yardımcı olur. Okuma (Read Only) işleminin yanısıra okuma - yazma (read - write) işleminin yapılmasını sağlar. Özetle sınıfı kontrolsüz değişime kapamak için kullanılır diyebiliriz. Böylelikle yanlış işlemlerin gerçekleşmeyeceğinden emin olabiliriz.
+Erişim belirteçleri (access modifier) sayesinde encapsulation çok daha kolay yapılmaktadır. Erişim belirteçleri, oluşturulan sınıf veya sınıf içindeki elemanların erişim seviyelerini belirlemek için kullanılan anahtar kelimeler grubuna verilen isimdir. Encapsulation "private" değişkenlerin metotlar gibi kullanılmasına yardımcı olur. Okuma (Read Only) işleminin yanısıra okuma - yazma (read - write) işleminin yapılmasını sağlar. Özetle sınıfı kontrolsüz değişime kapamak için kullanılır diyebiliriz. Böylelikle yanlış işlemlerin gerçekleşmeyeceğinden emin olabiliriz.
 
 ```java
 package encapsulation;
@@ -32,7 +32,7 @@ public class Student
   public int id;
   public String name;
   public String schoolNumber;
-  private double score; // score alanı kapsülleniyor.
+  private double score; // score alanı sarmalanıyor.
 
   public void setScore(double value) {
     if (value > 0 && value < 100) // set metoduyla verilen değerin uygun olması durumunda score alanına atama yapılır
