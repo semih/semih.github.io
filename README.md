@@ -31,6 +31,13 @@ Then clone it to your local machine and run:
 $ bundle
 ```
 
+```
+docker run -it --rm \               
+    --volume="$PWD:/srv/jekyll" \
+    -p 4004:4000 jekyll/jekyll \
+    jekyll serve
+```
+
 ## Usage
 
 Please see the [theme's docs](https://github.com/cotes2020/jekyll-theme-chirpy#documentation).
