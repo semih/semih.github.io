@@ -34,8 +34,9 @@ url: 'https://semih.github.io'
 github:
   username: semih     # change to your github username
 
-twitter:
-  username: twitter_username            # change to your twitter username
+linkedin:
+  username: semihkirdinli
+
 
 social:
   # Change to your full name.
@@ -48,7 +49,7 @@ social:
     - https://github.com/semih       # change to your github homepage
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/semihkirdinli
 
 # Disqus Comments
 disqus_short_name: semihkirdinli
