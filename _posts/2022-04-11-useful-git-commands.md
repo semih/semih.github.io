@@ -22,4 +22,6 @@ development is your working branch
 
 - git add FILE_NAME // adds your file to stage area
 - git commit -m "YOUR_COMMENT" // commit your file with YOUR_COMMENT
+- git revert commit_id -m 1
+- git log | grep commit_id
 ```
