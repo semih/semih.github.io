@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "File Compress/Decompress Operations"
-date: 2022-06-22 12:44:00 +0300
+date: 2022-06-21 22:00:00 +0300
 author: semih
 comments: true
 lang: en
@@ -10,16 +10,18 @@ categories: [Java]
 tags: [java, file, io, compress, zip]
 published: true
 ---
-When we develop code with Java, we often work with files and different types of them. In general, we need compression operations to keep the file content intact and to reduce the file size. Although the compression process has different methods in Java, the current and my own methods are as follows.
+When we develop code with Java, we often work with files and different types of them. 
+
+In general, we need compression operations to keep the file content intact and to reduce the file size. Although the compression process has different methods in Java, the current and my own methods are as follows.
 
 ```java
-public static byte[] compress(byte[] binaryFile, String outputFileName) {
+public static byte[] compress(byte[] input, String outputFileName) {
     try (ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
          ZipOutputStream zipOut = new ZipOutputStream(byteArrayOutputStream)) {
 
         ZipEntry zipEntry = new ZipEntry(outputFileName);
         zipOut.putNextEntry(zipEntry);
-        zipOut.write(binaryFile);
+        zipOut.write(input);
         zipOut.finish();
         return byteArrayOutputStream.toByteArray();
     } catch (IOException e) {
