@@ -35,7 +35,7 @@ $ bundle
 docker run -it --rm \
     --platform linux/amd64 \
     --volume="$PWD:/srv/jekyll" \
-    -p 4004:4000 jekyll/jekyll \
+    -p 4000:4000 jekyll/jekyll \
     jekyll serve
 ```
 
