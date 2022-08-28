@@ -8,7 +8,7 @@ lang: en
 lang-ref: operator
 categories: [Introduction to Java]
 tags: [java, operator]
-published: true
+published: false
 ---
 deneme
 <br/>

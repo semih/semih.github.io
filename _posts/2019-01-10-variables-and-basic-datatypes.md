@@ -8,6 +8,7 @@ lang: en
 lang-ref: data-types
 categories: [Introduction to Java]
 tags: [java, datatypes]
+published: false
 ---
 Although Java is object oriented, not all types are object. There are primitive types as well. Here is a list of all primitive types in Java:
 <br/>
