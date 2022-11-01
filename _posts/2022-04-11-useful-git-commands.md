@@ -31,4 +31,6 @@ development is your working branch
 - git stash apply
 
 - git reset --hard
+- git restore FILE_NAME
+- git restore --staged FILE_NAME
 ```
