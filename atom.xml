@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[My Java Blog]]></title>
+  <link href="https://semih.github.io/atom.xml" rel="self"/>
+  <link href="https://semih.github.io/"/>
+  <updated>2023-01-10T23:12:57+00:00</updated>
+  <id>https://semih.github.io/</id>
+  <author>
+    <name><![CDATA[]]></name>
+    
+  </author>
+  <generator uri="https://github.com/">GitHub Pages</generator>
+
+  
+  
+  <entry>
+    <title type="html"><![CDATA[File Compress/Decompress Operations]]></title>
+    <link href="https://semih.github.io/posts/file-compress-decompress-operations/"/>
+    <updated>2022-06-21T19:00:00+00:00</updated>
+    <id>https://semih.github.io/posts/file-compress-decompress-operations</id>
+    <content type="html"><![CDATA[<p>When we develop code with Java, we often work with files and different types of them.</p>
+
+<p>In general, we need compression operations to keep the file content intact and to reduce the file size. Although the compression process has different methods in Java, the current and my own methods are as follows.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+</pre></td><td class="rouge-code"><pre><span class="kd">public</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">compress</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">input</span><span class="o">,</span> <span class="nc">String</span> <span class="n">outputFileName</span><span class="o">)</span> <span class="o">{</span>
+    <span class="k">try</span> <span class="o">(</span><span class="nc">ByteArrayOutputStream</span> <span class="n">byteArrayOutputStream</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ByteArrayOutputStream</span><span class="o">();</span>
+         <span class="nc">ZipOutputStream</span> <span class="n">zipOut</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ZipOutputStream</span><span class="o">(</span><span class="n">byteArrayOutputStream</span><span class="o">))</span> <span class="o">{</span>
+
+        <span class="nc">ZipEntry</span> <span class="n">zipEntry</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ZipEntry</span><span class="o">(</span><span class="n">outputFileName</span><span class="o">);</span>
+        <span class="n">zipOut</span><span class="o">.</span><span class="na">putNextEntry</span><span class="o">(</span><span class="n">zipEntry</span><span class="o">);</span>
+        <span class="n">zipOut</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">input</span><span class="o">);</span>
+        <span class="n">zipOut</span><span class="o">.</span><span class="na">finish</span><span class="o">();</span>
+        <span class="k">return</span> <span class="n">byteArrayOutputStream</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">();</span>
+    <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Compress failed -&gt; {}"</span><span class="o">,</span> <span class="nc">ExceptionUtils</span><span class="o">.</span><span class="na">getStackTrace</span><span class="o">(</span><span class="n">e</span><span class="o">));</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">CompressFileIOException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+<span class="kd">public</span> <span class="kd">static</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">decompress</span><span class="o">(</span><span class="kt">byte</span><span class="o">[]</span> <span class="n">input</span><span class="o">)</span> <span class="o">{</span>
+    <span class="kt">byte</span><span class="o">[]</span> <span class="n">result</span><span class="o">;</span>
+    <span class="k">try</span> <span class="o">(</span><span class="nc">ZipInputStream</span> <span class="n">zis</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ZipInputStream</span><span class="o">(</span><span class="k">new</span> <span class="nc">ByteArrayInputStream</span><span class="o">(</span><span class="n">input</span><span class="o">));</span>
+         <span class="nc">ByteArrayOutputStream</span> <span class="n">bos</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ByteArrayOutputStream</span><span class="o">())</span> <span class="o">{</span>
+        <span class="kt">int</span> <span class="n">len</span><span class="o">;</span>
+        <span class="kt">byte</span><span class="o">[]</span> <span class="n">buffer</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">1024</span><span class="o">];</span>
+        <span class="nc">ZipEntry</span> <span class="n">zipEntry</span> <span class="o">=</span> <span class="n">zis</span><span class="o">.</span><span class="na">getNextEntry</span><span class="o">();</span>
+        <span class="k">while</span> <span class="o">(</span><span class="nc">Objects</span><span class="o">.</span><span class="na">nonNull</span><span class="o">(</span><span class="n">zipEntry</span><span class="o">)</span> <span class="o">&amp;&amp;</span> <span class="o">(</span><span class="n">len</span> <span class="o">=</span> <span class="n">zis</span><span class="o">.</span><span class="na">read</span><span class="o">(</span><span class="n">buffer</span><span class="o">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="o">){</span>
+            <span class="n">bos</span><span class="o">.</span><span class="na">write</span><span class="o">(</span><span class="n">buffer</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">len</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="n">bos</span><span class="o">.</span><span class="na">toByteArray</span><span class="o">();</span>
+    <span class="o">}</span>  <span class="k">catch</span> <span class="o">(</span><span class="nc">IOException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="na">error</span><span class="o">(</span><span class="s">"Decompress failed -&gt; {}"</span><span class="o">,</span> <span class="nc">ExceptionUtils</span><span class="o">.</span><span class="na">getStackTrace</span><span class="o">(</span><span class="n">e</span><span class="o">));</span>
+        <span class="k">throw</span> <span class="k">new</span> <span class="nf">CompressFileIOException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+    <span class="o">}</span>
+    <span class="k">return</span> <span class="n">result</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></td></tr></tbody></table></code></pre></div></div>
+]]></content>
+  </entry>
+  
+  
+  
+  <entry>
+    <title type="html"><![CDATA[Useful Git Commands]]></title>
+    <link href="https://semih.github.io/posts/useful-git-commands/"/>
+    <updated>2022-04-10T22:53:00+00:00</updated>
+    <id>https://semih.github.io/posts/useful-git-commands</id>
+    <content type="html"><![CDATA[<p>development is your working branch</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><table class="rouge-table"><tbody><tr><td class="rouge-gutter gl"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+</pre></td><td class="rouge-code"><pre>- git pull // gets last updates from your branch
+- git checkout BRANCH_NAME // changes your working branch
+- git checkout <span class="nt">-D</span> BRANCH_NAME // deletes your branch both <span class="k">in </span><span class="nb">local </span>and remote environments
+- git checkout <span class="nt">-b</span> development // creates a branch based on development
+- git switch <span class="nt">-c</span> BRANCH_NAME // switches your branch and your changes
+- git rebase development // updates your branch with your last changes of the based branch
+- git rebase <span class="nt">--continue</span>
+
+- git add FILE_NAME // adds your file to stage area
+- git commit <span class="nt">-m</span> <span class="s2">"YOUR_COMMENT"</span> // commit your file with YOUR_COMMENT
+- git revert commit_id <span class="nt">-m</span> 1
+- git log | <span class="nb">grep </span>commit_id
+
+- git stash
+- git stash pop
+- git stash apply
+
+- git reset <span class="nt">--hard</span>
+- git restore FILE_NAME
+- git restore <span class="nt">--staged</span> FILE_NAME
+</pre></td></tr></tbody></table></code></pre></div></div>
+]]></content>
+  </entry>
+  
+  
+</feed>
