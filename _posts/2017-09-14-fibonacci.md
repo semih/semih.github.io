@@ -8,7 +8,7 @@ lang: en
 lang-ref: fibonacci
 categories: [Algorithm]
 tags: [java, algorithm]
-published: false
+published: true
 ---
 In the following example, fibonacci numbers are written for given input in Java language.
 {% highlight java %}

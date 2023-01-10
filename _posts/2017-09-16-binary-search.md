@@ -8,7 +8,7 @@ lang: en
 lang-ref: binary-search
 categories: [Algorithm]
 tags: [java, algorithm]
-published: false
+published: true
 ---
 In the following example, you will see the recursive binary search algorithm implementation in Java language.
 {% highlight java %}

@@ -8,7 +8,7 @@ lang: en
 lang-ref: string
 categories: [Algorithm]
 tags: [java, algorithm]
-published: false
+published: true
 ---
 In the following example, reversal string operation is shown in Java language. *reverse(s)* method completely reverses the string.
 {% highlight java %}
