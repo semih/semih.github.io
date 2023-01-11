@@ -10,16 +10,7 @@ categories: [Introduction to Java]
 tags: [java, docker, container]
 published: true
 ---
-deneme
-<br/>
-
-### Primitive Datatypes:
-<div class="datatable-begin"></div>
-
-<div class="datatable-end"></div>
-<br/>
-
-_**Numbers**_
+In this article, we will learn how to create a composition of containers.
 
 ```java
 byte a = 68;
