@@ -15,12 +15,12 @@ In this post, we will use Docker to create an image of a Spring Boot application
 **1. create a Spring Boot application**
 I created the Spring Boot application with a standard maven plugin that includes Spring Web dependency.
 
-<img src="images/dockerize-spring-boot-application-1.png" width="350" />
+<img src="/assets/images/dockerize-spring-boot-application-1.png" width="350" />
 
 **2. create a rest controller**
 Basically, I added a rest controller to prove that the application is working.
 
-<img src="images/dockerize-spring-boot-application-2.png" width="800" />
+<img src="/assets/images/dockerize-spring-boot-application-2.png" width="800" />
 
 **3. add Dockerfile to the project**
 I added a file called Dockerfile to the root directory with no extension.
@@ -49,7 +49,7 @@ This topic will also be covered. Not for the moment though.
 **6. build the project**
 If the maven plugin is available for you to use in the terminal, run the "mvn install" command to provide your project built. You will see that the target package and jar files in it are created.
 
-<img src="images/dockerize-spring-boot-application-3.png" width="300" />
+<img src="/assets/images/dockerize-spring-boot-application-3.png" width="300" />
 
 **7. execute java jar command**
 ```bash
@@ -79,8 +79,8 @@ docker run -p 8085:8085 -e PORT=8085 -e POSTGRESQL_HOST=192.168.X.X -e POSTGRESQ
 docker ps -a
 docker logs -f 904957ee3ae2
 ```
-:ok_hand: And Spring Boot application is running on the Docker container as expected. :blush: :tada: :clap:
+👌 And Spring Boot application is running on the Docker container as expected. 😊 🎉 👏
 
-<img src="images/dockerize-spring-boot-application-4.png" width="1400" />
+<img src="/assets/images/dockerize-spring-boot-application-4.png" width="1400" />
 
 Hope the information in this post is useful and enough for you. Please contact me if you have any questions or comments. :wave:
