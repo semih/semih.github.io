@@ -6,7 +6,7 @@ author: semih
 comments: true
 lang: en
 lang-ref: docker
-categories: [Introduction to Java]
+categories: [docker]
 tags: [java, docker, container]
 published: true
 ---
