@@ -12,34 +12,49 @@ published: true
 ---
 In this article, we will learn how to create a composition of containers.
 
-```java
-byte a = 68;
-int myNumber = 5;
-double d = 4.5;
-float f = (float) 4.5;
-float f = 4.5f; // (f is a shorter way of casting float)
+**1. define a DockerFile in the module**
+
+```bash
+FROM openjdk:17-alpine
+COPY /target/*.jar app.jar
+ENTRYPOINT ["java","-jar","app.jar"]
 ```
 
-_**Characters and Strings**_
-
-```java
-char c = 'g';
+**2. add maven plugin as a plugin**
+```xml
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-maven-plugin</artifactId>
+        </plugin>
+    </plugins>
+</build>
 ```
 
-Double quotes automatically creates a new String object.
-String objects are immutable, which means that once created, their values cannot be changed.
-<br/>For example: `String s = "this is a string";`
+**3. define a bitbucket-pipelines(optional)**
 
+**4. execute java jar command**
+   
+java -jar target/account-service-1.0.0.jar
 
-```java
-String s1 = new String("Who let the dogs out?"); // String object stored in heap memory
-String s2 = "Who who who who!";	// String literal stored in String pool
+```bash
+docker ps -a
+docker rm f883019f5835   
+docker ps -a    
+docker images      
+docker rmi a67aecce36a5
 ```
 
-_**Boolean**_
+**5. run docker build commands**
 
-```java
-boolean b = false;
+```bash
+docker build -t company-example-service .
+docker run -p 8085:8085 --name company-example-service -d company-example-service
+docker run -p 8085:8085 -e PORT=8085 -e POSTGRESQL_HOST=192.168.X.X -e POSTGRESQL_PORT=5432 -e POSTGRESQL_DB_NAME=exampleDb -e POSTGRESQL_USER=postgres -e POSTGRESQL_PASSWORD=postgres --name company-example-service -d company-example-service
+
+docker ps -a      
+docker logs -f 904957ee3ae2
 ```
 
-Hope to see you in the next article...
+I hope the information in this article is useful and enough for you. Please contact me if you have any questions or comments.
