@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Dockerize Spring Boot Application"
-date: 2023-01-12 00:00:00 +0300
+date: 2023-01-11 22:00:00 +0300
 author: semih
 comments: true
 lang: en
