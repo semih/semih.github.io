@@ -6,7 +6,7 @@ author: semih
 comments: true
 lang: en
 lang-ref: learning-docker
-categories: [Java]
+categories: [docker]
 tags: [java, file, io, docker, container]
 published: false
 ---

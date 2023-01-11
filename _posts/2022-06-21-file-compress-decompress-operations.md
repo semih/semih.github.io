@@ -6,7 +6,7 @@ author: semih
 comments: true
 lang: en
 lang-ref: file-compress-decompress-operations
-categories: [Java]
+categories: [java]
 tags: [java, file, io, compress, zip]
 published: true
 ---

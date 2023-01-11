@@ -6,7 +6,7 @@ author: semih
 comments: true
 lang: en
 lang-ref: data-types
-categories: [Introduction to Java]
+categories: [java]
 tags: [java, datatypes]
 published: true
 ---

@@ -6,7 +6,7 @@ author: semih
 comments: true
 lang: en
 lang-ref: useful-git-commands
-categories: [Git]
+categories: [git]
 tags: [git, version-control]
 published: true
 ---

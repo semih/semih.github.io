@@ -6,7 +6,7 @@ author: semih
 comments: true
 lang: en
 lang-ref: binary-search
-categories: [Algorithm]
+categories: [algorithm]
 tags: [java, algorithm]
 published: true
 ---

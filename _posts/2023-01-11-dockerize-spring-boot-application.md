@@ -5,7 +5,7 @@ date: 2023-01-11 22:00:00 +0300
 author: semih
 comments: true
 lang: en
-lang-ref: docker
+lang-ref: dockerize-spring-boot-application
 categories: [docker]
 tags: [java, docker, container]
 published: true
