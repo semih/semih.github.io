@@ -57,7 +57,7 @@ java -jar target/docker-0.0.1-SNAPSHOT.jar
 ```
 Eventually the project is up and running, and when I send a request from the browser, I expect to see "Hello World Docker" on the screen. 
 
-So far, our application has worked normally. Not in any docker container.I guess everything we've done so far is clear, understandable, and the way we always do.
+So far, our application has worked normally. Not in any docker container. I guess everything we've done so far is clear, understandable, and the way we always do.
 
 The commands we will write from now on will make the project run on a docker container.
 
