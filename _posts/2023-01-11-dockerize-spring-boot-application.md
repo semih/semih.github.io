@@ -10,10 +10,10 @@ categories: [docker]
 tags: [java, docker, container]
 published: true
 ---
-In this post, we will use Docker to create an image of a Spring Boot application and run it in a container. Let's generate a Spring Boot application.
+In this post, we will use Docker to create an image of a Spring Boot application and run it in a container. 
 
 **1. create a Spring Boot application**
-I created the Spring Boot application with a standard maven plugin that includes Spring Web dependency.
+Let's generate a Spring Boot application with a standard maven plugin that includes Spring Web dependency.
 
 <img src="/assets/images/dockerize-spring-boot-application-1.png" width="350" />
 
