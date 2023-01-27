@@ -79,8 +79,8 @@ docker run -p 8085:8085 -e PORT=8085 -e POSTGRESQL_HOST=192.168.X.X -e POSTGRESQ
 docker ps -a
 docker logs -f 904957ee3ae2
 ```
-👌 And Spring Boot application is running on the Docker container as expected. 😊 🎉 👏
+And Spring Boot application is running on the Docker container as expected. 👌
 
 <img src="/assets/images/dockerize-spring-boot-application-4.png" width="1400" />
 
-Hope the information in this post is useful and sufficient for you. Please contact me if you have any questions or comments. 👋
+Hope the information in this post is useful and sufficient for you. Please contact me if you have any questions or comments.
