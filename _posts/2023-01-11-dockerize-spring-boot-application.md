@@ -83,4 +83,4 @@ docker logs -f 904957ee3ae2
 
 <img src="/assets/images/dockerize-spring-boot-application-4.png" width="1400" />
 
-Hope the information in this post is useful and enough for you. Please contact me if you have any questions or comments. 👋
+Hope the information in this post is useful and sufficient for you. Please contact me if you have any questions or comments. 👋
