@@ -21,9 +21,9 @@ timezone: Europe/Istanbul
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: My Java Blog                          # the main title
+title: Notes                         # the main title
 
-tagline: contains blog posts about java programming language   # it will display as the sub-title
+tagline: contains notes about programming and design   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
