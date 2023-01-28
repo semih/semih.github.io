@@ -73,7 +73,7 @@ So far, our application has run flawlessly, but not in any docker container. I g
 
 The commands we are going to write from now on will make the project run on a docker container.
 
-You can use the commands below to check containers and images running on Docker.
+You can use the commands below to check the containers and images running on Docker.
 ```bash
 docker ps -a
 docker images
