@@ -7,7 +7,7 @@ comments: true
 lang: en
 lang-ref: dockerize-a-spring-boot-application
 categories: [docker]
-tags: [java, docker, container]
+tags: [docker]
 published: true
 ---
 Docker is a Linux container management tool that enables users to publish their own container images and download those that are published by others.
