@@ -10,7 +10,19 @@ categories: [docker]
 tags: [java, docker, container]
 published: true
 ---
-In this post, we are goint to use Docker to create an image of a Spring Boot application and run it in a container. 
+Docker is a Linux container management tool that enables users to publish their own container images and download those that are published by others.
+
+The way to containerize your application is to create a Dockerfile. A **Dockerfile** is a file that contains the instructions for creating a Docker image.
+
+A **container** is a sandbox running on your computer that is isolated from all other processes. To make a docker image, you have to write script in Dockerfile. A container:
+- is a runnable instance of an image
+- can be run on local machines, virtual machines or cloud.
+- is portable
+- is isolated from other containers
+
+A **docker image** is an instance of a container. When running a container, it uses an isolated filesystem. A container image provides this customized filesystem. Because the image contains the container's filesystem, it must contain everything required to run an application, all dependencies, configurations, scripts, binaries, and so on. The image also includes additional container configuration. To make container from image, you have to run ```docker run IMAGE``` command.
+
+In this post, we are going to use the Docker to construct an image of a Spring Boot application and run it in a container. We can send this image we created to the DockerHub with the ```docker push``` command and let the application be downloaded and used by others. I'll go through the steps required for this in order.
 
 **1. create a Spring Boot application**
 Let's generate a Spring Boot application with a standard maven plugin that includes Spring Web dependency.
@@ -57,7 +69,7 @@ java -jar target/docker-0.0.1-SNAPSHOT.jar
 ```
 Eventually, the project is up and running, and when I send a request from the browser, I expect to see "Hello World Docker" on the screen. 
 
-So far, our application has worked flawlessly, but not in any docker container. I guess everything we've done so far is clear, understandable, and the way we always do.
+So far, our application has run flawlessly, but not in any docker container. I guess everything we've done so far is clear, understandable, and the way we always do.
 
 The commands we are going to write from now on will make the project run on a docker container.
 
