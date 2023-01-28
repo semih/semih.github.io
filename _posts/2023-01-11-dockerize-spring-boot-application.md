@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Dockerize Spring Boot Application"
+title: "Dockerize a Spring Boot Application"
 date: 2023-01-11 22:00:00 +0300
 author: semih
 comments: true
 lang: en
-lang-ref: dockerize-spring-boot-application
+lang-ref: dockerize-a-spring-boot-application
 categories: [docker]
 tags: [java, docker, container]
 published: true
@@ -16,7 +16,7 @@ The way to containerize your application is to create a Dockerfile. A **Dockerfi
 
 A **container** is a sandbox running on your computer that is isolated from all other processes. To make a docker image, you have to write script in Dockerfile. A container:
 - is a runnable instance of an image
-- can be run on local machines, virtual machines or cloud.
+- can be run on local machines, virtual machines or cloud
 - is portable
 - is isolated from other containers
 
