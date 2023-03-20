@@ -51,6 +51,12 @@ public interface DataSource {
 ```java
 package com.decorator;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.OutputStream;
+
 public class FileDataSource implements DataSource {
   private String name;
   public FileDataSource(String name) {
@@ -58,12 +64,25 @@ public class FileDataSource implements DataSource {
   }
   @Override
   public void writeData(String data) {
-    System.out.println(data + "is written.");
+    File file = new File(name);
+    try (OutputStream fos = new FileOutputStream(file)) {
+      fos.write(data.getBytes(), 0, data.length());
+    } catch (IOException ex) {
+      System.out.println(ex.getMessage());
+    }
   }
 
   @Override
   public String readData() {
-    return "read data";
+    char[] buffer = null;
+    File file = new File(name);
+    try (FileReader reader = new FileReader(file)) {
+      buffer = new char[(int) file.length()];
+      reader.read(buffer);
+    } catch (IOException ex) {
+      System.out.println(ex.getMessage());
+    }
+    return new String(buffer);
   }
 }
 ```
@@ -72,26 +91,28 @@ public class FileDataSource implements DataSource {
 package com.decorator;
 
 public class DataSourceDecorator implements DataSource {
-    private DataSource wrappee;
+  private DataSource wrappee;
 
-    DataSourceDecorator(DataSource source) {
-        this.wrappee = source;
-    }
+  DataSourceDecorator(DataSource source) {
+    this.wrappee = source;
+  }
 
-    @Override
-    public void writeData(String data) {
-        wrappee.writeData(data);
-    }
+  @Override
+  public void writeData(String data) {
+    wrappee.writeData(data);
+  }
 
-    @Override
-    public String readData() {
-        return wrappee.readData();
-    }
+  @Override
+  public String readData() {
+    return wrappee.readData();
+  }
 }
 ```
 
 ```java
 package com.decorator;
+
+import java.util.Base64;
 
 public class EncryptionDecorator extends DataSourceDecorator {
 
@@ -110,11 +131,19 @@ public class EncryptionDecorator extends DataSourceDecorator {
   }
 
   private String encode(String data) {
-    return data + " is encoded";
+    byte[] result = data.getBytes();
+    for (int i = 0; i < result.length; i++) {
+      result[i] += (byte) 1;
+    }
+    return Base64.getEncoder().encodeToString(result);
   }
 
   private String decode(String data) {
-    return data + " is decoded";
+    byte[] result = Base64.getDecoder().decode(data);
+    for (int i = 0; i < result.length; i++) {
+      result[i] -= (byte) 1;
+    }
+    return new String(result);
   }
 }
 ```
@@ -122,9 +151,28 @@ public class EncryptionDecorator extends DataSourceDecorator {
 ```java
 package com.decorator;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Base64;
+import java.util.zip.Deflater;
+import java.util.zip.DeflaterOutputStream;
+import java.util.zip.InflaterInputStream;
+
 public class CompressionDecorator extends DataSourceDecorator {
+  private int compLevel = 6;
+
   public CompressionDecorator(DataSource source) {
     super(source);
+  }
+
+  public int getCompressionLevel() {
+    return compLevel;
+  }
+
+  public void setCompressionLevel(int value) {
+    compLevel = value;
   }
 
   @Override
@@ -138,11 +186,36 @@ public class CompressionDecorator extends DataSourceDecorator {
   }
 
   private String compress(String stringData) {
-    return stringData + " is compressed.";
+    byte[] data = stringData.getBytes();
+    try {
+      ByteArrayOutputStream bout = new ByteArrayOutputStream(512);
+      DeflaterOutputStream dos = new DeflaterOutputStream(bout, new Deflater(compLevel));
+      dos.write(data);
+      dos.close();
+      bout.close();
+      return Base64.getEncoder().encodeToString(bout.toByteArray());
+    } catch (IOException ex) {
+      return null;
+    }
   }
 
   private String decompress(String stringData) {
-    return stringData + " is decompressed.";
+    byte[] data = Base64.getDecoder().decode(stringData);
+    try {
+      InputStream in = new ByteArrayInputStream(data);
+      InflaterInputStream iin = new InflaterInputStream(in);
+      ByteArrayOutputStream bout = new ByteArrayOutputStream(512);
+      int b;
+      while ((b = iin.read()) != -1) {
+        bout.write(b);
+      }
+      in.close();
+      iin.close();
+      bout.close();
+      return new String(bout.toByteArray());
+    } catch (IOException ex) {
+      return null;
+    }
   }
 }
 ```
@@ -153,12 +226,10 @@ package com.decorator;
 public class Demo {
   public static void main(String[] args) {
     String salaryRecords = "Name,Salary\nJohn Smith,100000\nSteven Jobs,912000";
-
     DataSourceDecorator encoded = new CompressionDecorator(
       new EncryptionDecorator(
         new FileDataSource("OutputDemo.txt")));
     encoded.writeData(salaryRecords);
-
     DataSource plain = new FileDataSource("OutputDemo.txt");
 
     System.out.println("- Input ----------------");
@@ -173,17 +244,16 @@ public class Demo {
 
 Here are the results.
 ```bash
-Name,Salary
-John Smith,100000
-Steven Jobs,912000 is compressed. is encodedis written.
 - Input ----------------
 Name,Salary
 John Smith,100000
 Steven Jobs,912000
 - Encoded --------------
-read data
+Zkt7e1Q5eU8yUm1Qe0ZsdHJ2VXp6dDBKVnhrUHtUe0sxRUYxQkJIdjVLTVZ0dVI5Q2IwOXFISmVUMU5rcENCQmdxRlByaD4+
 - Decoded --------------
-read data is decoded is decompressed.
+Name,Salary
+John Smith,100000
+Steven Jobs,912000
 
 Process finished with exit code 0
 ```
