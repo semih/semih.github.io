@@ -37,7 +37,7 @@ There is going to be a class could only read and write data in plain text. Then 
 The first wrapper encrypts and decrypts data, and the second one compresses and extracts data. You can also combine these wrappers by one decorator with another.
 <img src="/assets/images/design-patterns-decorator.jpeg" width="1400" />
 
-Let's come to the implementation.
+Let's take a look at the implementation.
 
 ```java
 package com.decorator;
@@ -51,39 +51,20 @@ public interface DataSource {
 ```java
 package com.decorator;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.OutputStream;
-
 public class FileDataSource implements DataSource {
-    private String name;
-    public FileDataSource(String name) {
-        this.name = name;
-    }
-    @Override
-    public void writeData(String data) {
-        File file = new File(name);
-        try (OutputStream fos = new FileOutputStream(file)) {
-            fos.write(data.getBytes(), 0, data.length());
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
+  private String name;
+  public FileDataSource(String name) {
+    this.name = name;
+  }
+  @Override
+  public void writeData(String data) {
+    System.out.println(data + "is written.");
+  }
 
-    @Override
-    public String readData() {
-        char[] buffer = null;
-        File file = new File(name);
-        try (FileReader reader = new FileReader(file)) {
-            buffer = new char[(int) file.length()];
-            reader.read(buffer);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-        return new String(buffer);
-    }
+  @Override
+  public String readData() {
+    return "read data";
+  }
 }
 ```
 
@@ -112,111 +93,57 @@ public class DataSourceDecorator implements DataSource {
 ```java
 package com.decorator;
 
-import java.util.Base64;
-
 public class EncryptionDecorator extends DataSourceDecorator {
 
-    public EncryptionDecorator(DataSource source) {
-        super(source);
-    }
+  public EncryptionDecorator(DataSource source) {
+    super(source);
+  }
 
-    @Override
-    public void writeData(String data) {
-        super.writeData(encode(data));
-    }
+  @Override
+  public void writeData(String data) {
+    super.writeData(encode(data));
+  }
 
-    @Override
-    public String readData() {
-        return decode(super.readData());
-    }
+  @Override
+  public String readData() {
+    return decode(super.readData());
+  }
 
-    private String encode(String data) {
-        byte[] result = data.getBytes();
-        for (int i = 0; i < result.length; i++) {
-            result[i] += (byte) 1;
-        }
-        return Base64.getEncoder().encodeToString(result);
-    }
+  private String encode(String data) {
+    return data + " is encoded";
+  }
 
-    private String decode(String data) {
-        byte[] result = Base64.getDecoder().decode(data);
-        for (int i = 0; i < result.length; i++) {
-            result[i] -= (byte) 1;
-        }
-        return new String(result);
-    }
+  private String decode(String data) {
+    return data + " is decoded";
+  }
 }
 ```
 
 ```java
 package com.decorator;
 
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Base64;
-import java.util.zip.Deflater;
-import java.util.zip.DeflaterOutputStream;
-import java.util.zip.InflaterInputStream;
-
 public class CompressionDecorator extends DataSourceDecorator {
-    private int compLevel = 6;
+  public CompressionDecorator(DataSource source) {
+    super(source);
+  }
 
-    public CompressionDecorator(DataSource source) {
-        super(source);
-    }
+  @Override
+  public void writeData(String data) {
+    super.writeData(compress(data));
+  }
 
-    public int getCompressionLevel() {
-        return compLevel;
-    }
+  @Override
+  public String readData() {
+    return decompress(super.readData());
+  }
 
-    public void setCompressionLevel(int value) {
-        compLevel = value;
-    }
+  private String compress(String stringData) {
+    return stringData + " is compressed.";
+  }
 
-    @Override
-    public void writeData(String data) {
-        super.writeData(compress(data));
-    }
-
-    @Override
-    public String readData() {
-        return decompress(super.readData());
-    }
-
-    private String compress(String stringData) {
-        byte[] data = stringData.getBytes();
-        try {
-            ByteArrayOutputStream bout = new ByteArrayOutputStream(512);
-            DeflaterOutputStream dos = new DeflaterOutputStream(bout, new Deflater(compLevel));
-            dos.write(data);
-            dos.close();
-            bout.close();
-            return Base64.getEncoder().encodeToString(bout.toByteArray());
-        } catch (IOException ex) {
-            return null;
-        }
-    }
-
-    private String decompress(String stringData) {
-        byte[] data = Base64.getDecoder().decode(stringData);
-        try {
-            InputStream in = new ByteArrayInputStream(data);
-            InflaterInputStream iin = new InflaterInputStream(in);
-            ByteArrayOutputStream bout = new ByteArrayOutputStream(512);
-            int b;
-            while ((b = iin.read()) != -1) {
-                bout.write(b);
-            }
-            in.close();
-            iin.close();
-            bout.close();
-            return new String(bout.toByteArray());
-        } catch (IOException ex) {
-            return null;
-        }
-    }
+  private String decompress(String stringData) {
+    return stringData + " is decompressed.";
+  }
 }
 ```
 
@@ -224,42 +151,43 @@ public class CompressionDecorator extends DataSourceDecorator {
 package com.decorator;
 
 public class Demo {
-    public static void main(String[] args) {
-        String salaryRecords = "Name,Salary\nJohn Smith,100000\nSteven Jobs,912000";
-        DataSourceDecorator encoded = new CompressionDecorator(
-                new EncryptionDecorator(
-                        new FileDataSource("OutputDemo.txt")));
-        encoded.writeData(salaryRecords);
-        DataSource plain = new FileDataSource("OutputDemo.txt");
+  public static void main(String[] args) {
+    String salaryRecords = "Name,Salary\nJohn Smith,100000\nSteven Jobs,912000";
 
-        System.out.println("- Input ----------------");
-        System.out.println(salaryRecords);
-        System.out.println("- Encoded --------------");
-        System.out.println(plain.readData());
-        System.out.println("- Decoded --------------");
-        System.out.println(encoded.readData());
-    }
+    DataSourceDecorator encoded = new CompressionDecorator(
+      new EncryptionDecorator(
+        new FileDataSource("OutputDemo.txt")));
+    encoded.writeData(salaryRecords);
+
+    DataSource plain = new FileDataSource("OutputDemo.txt");
+
+    System.out.println("- Input ----------------");
+    System.out.println(salaryRecords);
+    System.out.println("- Encoded --------------");
+    System.out.println(plain.readData());
+    System.out.println("- Decoded --------------");
+    System.out.println(encoded.readData());
+  }
 }
 ```
 
 Here are the results.
 ```bash
-Connected to the target VM, address: '127.0.0.1:52741', transport: 'socket'
+Name,Salary
+John Smith,100000
+Steven Jobs,912000 is compressed. is encodedis written.
 - Input ----------------
-  Name,Salary
-  John Smith,100000
-  Steven Jobs,912000
+Name,Salary
+John Smith,100000
+Steven Jobs,912000
 - Encoded --------------
-  Zkt7e1Q5eU8yUm1Qe0ZsdHJ2VXp6dDBKVnhrUHtUe0sxRUYxQkJIdjVLTVZ0dVI5Q2IwOXFISmVUMU5rcENCQmdxRlByaD4+
+read data
 - Decoded --------------
-  Name,Salary
-  John Smith,100000
-  Steven Jobs,912000
-  Disconnected from the target VM, address: '127.0.0.1:52741', transport: 'socket'
+read data is decoded is decompressed.
 
 Process finished with exit code 0
 ```
 
 To summarize, a decorator can be recognized by methods or constructors that accept objects of the same type.
-You can see the examples of decorator classes in core Java libraries as well.
+You can see the examples of decorator classes in core Java libraries.
 `java.io.InputStream, OutputStream, Reader` and `Writer` have constructors that accept objects of their own type.
