@@ -284,5 +284,4 @@ public class BBankAccountStatementResponseConverter implements Converter<Object,
   }
 }
 ```
-You can access the source codes from the link. :point_right:
-[banking-integration.zip](../../assets/java/banking-integration.zip)
+You can download the source code from the [banking-integration.zip](../../assets/java/banking-integration.zip) file.
