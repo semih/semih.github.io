@@ -46,7 +46,7 @@ There are two ways to implement the adapter pattern: class adapter and object ad
 2. Object Adapter:  The object adapter uses composition to wrap the existing class and delegate the interface methods to it. It is more flexible and robust, but it requires more code and may introduce some overhead.
    <img src="/assets/images/design-patterns-adapter-3.jpeg" width="1400" />
 
-> Both approaches have their pros and cons, and you should choose the most suitable implementation, such as class adapter or object adapter.
+Both approaches have their pros and cons, and you should choose the most suitable implementation, such as class adapter or object adapter.
 
 In this part, I would like to show you an example of the adapter pattern that we used in a project.
 The project needs to communicate to different bank account statement web services. Although the return response is the same, the request body information may differ for each bank.
