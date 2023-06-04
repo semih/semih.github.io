@@ -48,11 +48,7 @@ There are two ways to implement the adapter pattern: class adapter and object ad
 
 Both approaches have their pros and cons, and you should choose the most suitable implementation, such as class adapter or object adapter.
 
-In this part, I would like to show you an example of the adapter pattern that we used in a project.
-The project needs to communicate to different bank account statement web services. Although the return response is the same, the request body information may differ for each bank.
-We used an adapter pattern to convert the request to a specific request. According to the bank type, we have done the conversion of the request with the adaptee method.
-So we have provided an abstraction based on bank type, and we can now implement n banks in our system. We
-As a result, we have created a structure where we accept different requests and return the same response.
+In this part, I would like to show you an example of the adapter pattern that we used in a project. It needs to communicate to different bank account statement web services. Although the return response is the same, the request body information may differ for each bank. We have used an adapter pattern to convert the request to a specific request. According to the bank type, we have done the conversion of the request with the adaptee method. So we have provided an abstraction based on the bank type, and we can now implement numerous banks in our system. As a result, we have created a structure where we accept different requests and return the same response.
 
 ```java
 @RestController

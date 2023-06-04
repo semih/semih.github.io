@@ -19,12 +19,14 @@ As a benefit of creating commands as objects, they can also be taught to undo th
 
 ---
 
-The Command pattern involves the following key components:
+The Command Pattern involves the following key components:
 - **Command:** This is an interface or an abstract class that declares an execute() method. This method defines the operation to be performed.
-- **Concrete** Command: These are the implementations of the Command interface. Each concrete command encapsulates a specific request and binds it to a receiver by invoking the corresponding operation on the receiver.
+- **Concrete Command:** These are the implementations of the Command interface. Each concrete command encapsulates a specific request and binds it to a receiver by invoking the corresponding operation on the receiver.
 - **Receiver:** This is the object that performs the actual operation when a command is executed. The receiver knows how to carry out the request.
 - **Invoker:** The invoker is responsible for initiating the execution of the command. It holds a reference to a command object and can execute the command by calling its execute() method.
 - **Client:** The client is responsible for creating the command objects, setting their receivers, and associating them with invokers.
+
+Now take a look at the example written in Java.
 
 ```java
 // Step 1: Create the Command interface
