@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Decorator Design Pattern"
+title: "Command Design Pattern"
 date: 2023-05-31 20:00:00 +0300
 author: semih
 comments: true
