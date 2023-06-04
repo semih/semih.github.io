@@ -13,7 +13,7 @@ published: true
 **Command Design Pattern** is a behavioral design pattern that turns a request(action or operation) into a stand-alone object that contains all information about the request.
 
 The command design pattern wraps the objects that performs user requests. In this way, the same code structure can be used again and again. Each process to be performed on the command pattern is wrapped as an object.
-There may be different command objects which has already implemented. The object to be processed is sent to the command object as a parameter and various are given to it.
+There may be different command objects which has already implemented. The object to be processed is sent to the command class as a parameter and various operations are performed on the object.
 
 As a benefit of creating commands as objects, they can also be taught to undo their actions when desired. As a result, Redo(Redo)/Undo(Undo) operations can be performed and a macro feature can be created.
 
@@ -153,4 +153,4 @@ These are just a few examples of the fields of usage for the Command pattern. It
 
 ---
 
-I have tried to summarize it in its simple form. I hope it has been an example you can apply to your specific scenarios.
+I've tried to summarize it in its simple form. I hope it has been an example you can apply to your specific scenarios.
