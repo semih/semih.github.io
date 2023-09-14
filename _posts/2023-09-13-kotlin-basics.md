@@ -13,6 +13,7 @@ published: true
 The Kotlin programming language is a modern language that provides you with more power for your everyday tasks. Kotlin is concise, safe, pragmatic, and focused on interoperability with Java code.
 It can be used almost everywhere Java is used today for server-side development, Android apps, and much more.
 Kotlin class/file extension is kt. No need to put semicolon to the end of the code lines.
+
 ---
 
 ### Variable Definitions
@@ -72,25 +73,27 @@ System.out.println(person.getName());
 val person = Person("Alice",27)
 println(person.name)
 ```
-<hr/>
+
+---
 
 ### Switch-case Statements
 
 - updateWeather function in Java
 ```java
 public void updateWeather (int degress) {
-  String description;
-  Color color;
-  if(degrees < 10) {
-    description="cold";
-    color = BLUE;
-  } else if(degrees < 25) {
-    description="cold";
-    color = ORANGE;
-  } else {
-    description="hot";
-    color = RED;
-  }
+    String description;
+    Color color;
+    if(degrees < 10) {
+      description="cold";
+      color = BLUE;
+    } else if(degrees < 25) {
+      description="cold";
+      color = ORANGE;
+    } else {
+      description="hot";
+      color = RED;
+    }
+}
 ```
 
 > You can create an object without using `new` keyword in Kotlin. <br />
@@ -118,6 +121,7 @@ Hello, null!
 Hello, Kotlin!
 ```
 ---
+
 ### val / var usage
 - `val` -> read-only like a final variable immutable. read-only reference, not object
   ```kotlin
