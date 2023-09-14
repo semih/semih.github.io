@@ -36,21 +36,21 @@ You can convert from Java code to Kotlin. Kotlin code can be converted to Java b
 - Person class in Java
 ```java
 class Person {
-  private String name;
-  private int age;
+    private String name;
+    private int age;
 
-  public Person(String name, int age) {
-    this.name = name;
-    this.age = age;
-  }
+    public Person(String name, int age) {
+      this.name = name;
+      this.age = age;
+    }
 
-  public String getName() {
-    return name;
-  }
+    public String getName() {
+      return name;
+    }
 
-  public int getAge() {
-    return age;
-  }
+    public int getAge() {
+      return age;
+    }
 }
 ```
 - Person class in Kotlin
@@ -100,9 +100,9 @@ public void updateWeather (int degress) {
 ```kotlin
   fun updateWeather(degrees: Int) {
     val (description, color) = when {
-      degrees < 10 -> "cold" to BLUE
-      degrees < 25 -> "mild" to ORANGE
-      else -> "hot" to RED
+        degrees < 10 -> "cold" to BLUE
+        degrees < 25 -> "mild" to ORANGE
+        else -> "hot" to RED
     }
   }
 ```
@@ -110,7 +110,7 @@ public void updateWeather (int degress) {
 ### Passing parameters
 ```kotlin
 fun main(args: Array<String>) {
-  println("Hello, ${args.getOrNull(0)}!")
+    println("Hello, ${args.getOrNull(0)}!")
 }
 ```
 ```console
