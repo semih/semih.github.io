@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kotlin Basics"
-date: 2023-09-31 20:00:00 +0300
+date: 2023-09-14 20:00:00 +0300
 author: semih
 comments: true
 lang: en
