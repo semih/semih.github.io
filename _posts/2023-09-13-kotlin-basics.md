@@ -121,8 +121,8 @@ Hello, null!
 Hello, Kotlin!
 ```
 ---
-
 ### val / var usage
+
 - `val` -> read-only like a final variable immutable. read-only reference, not object
   ```kotlin
   val mutableList = mutableListOf("Java")
