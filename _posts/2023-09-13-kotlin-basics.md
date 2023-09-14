@@ -28,8 +28,10 @@ You can convert from Java code to Kotlin. Kotlin code can be converted to Java b
 - Java source code -> .java
 - Kotlin source code -> .kt
 - Java byte code -> .class
+
 > .kt -> .class like .java -> .class
 ---
+
 ### Class Definitions
 - Person class in Java
 ```java
