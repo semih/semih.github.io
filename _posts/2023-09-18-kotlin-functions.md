@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Kotlin Functions"
-date: 2023-09-19 00:50:00 +0300
+date: 2023-09-18 20:00:00 +0300
 author: semih
 comments: true
 lang: en

@@ -23,7 +23,7 @@ timezone: Europe/Istanbul
 
 title: Notes                         # the main title
 
-tagline: contains notes about programming and design   # it will display as the sub-title
+tagline: includes info about programming and software design   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, responsive, and powerful Jekyll theme for presenting professional writing.
