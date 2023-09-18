@@ -16,7 +16,7 @@ Kotlin class/file extension is kt. No need to put semicolon to the end of the co
 
 Intellij Idea can convert your code from Java to Kotlin. This is a vital feature for Java developers to learn Kotlin.
 
-<img src="/assets/images/kotlin-basics-1.png" width="60%" />
+<img src="/assets/images/kotlin-basics.png" />
 
 ---
 
