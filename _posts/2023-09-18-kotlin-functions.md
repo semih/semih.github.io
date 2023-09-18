@@ -106,4 +106,4 @@ displaySeparator()                              // **********
 displaySeparator(size = 5)                      // *****
 displaySeparator(size = 3, character = '5')     // 555
 ```
-I've tried to explain the functions in Kotlin language. I will present examples about Conditionals: if & when.
+I've tried to explain the functions in Kotlin language. I will present examples about control structures.
