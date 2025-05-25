@@ -8,7 +8,7 @@ lang: en
 lang-ref: kotlin-functions
 categories: [kotlin]
 tags: [kotlin]
-published: true
+published: false
 ---
 In this section, you will learn the different syntax of how to define a function in Kotlin. To create your own function, use the `fun` keyword, and write the function name, followed by parentheses.
 You can use predefined functions, create your own functions, or call a function.

@@ -8,7 +8,7 @@ lang: en
 lang-ref: kotlin-basics
 categories: [kotlin]
 tags: [kotlin]
-published: true
+published: false
 ---
 The Kotlin programming language is a modern language that provides you with more power for your everyday tasks. Kotlin is concise, safe, pragmatic, and focused on interoperability with Java code.
 It can be used almost everywhere Java is used today for server-side development, Android apps, and much more.
